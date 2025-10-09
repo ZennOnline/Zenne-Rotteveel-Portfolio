@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BEST training | Portfolio</title>
+<title>Project 1 | Portfolio</title>
 <style>
   body {
     margin: 0;
@@ -11,6 +11,7 @@
     background-color: #141414;
     color: #fff;
   }
+
   /* Navbar */
   header {
     display: flex;
@@ -26,6 +27,7 @@
     color: #e50914;
     font-size: 1.4rem;
   }
+
   /* Back button */
   .back-btn {
     position: absolute;
@@ -36,6 +38,7 @@
     font-weight: bold;
     z-index: 10;
   }
+
   /* Hero section */
   .project-hero {
     display: flex;
@@ -43,6 +46,7 @@
     padding: 40px;
     gap: 20px;
   }
+
   .cover-image {
     position: relative;
     width: 300px;
@@ -70,6 +74,7 @@
   .cover-overlay p {
     font-size: 0.85rem;
   }
+
   .project-info {
     flex: 1;
     min-width: 250px;
@@ -85,7 +90,8 @@
     font-size: 2.5rem;
     margin: 0 0 20px;
   }
-  /* Tab menu */
+
+  /* Tabs */
   .tabs {
     display: flex;
     gap: 20px;
@@ -110,17 +116,20 @@
   .tab-content.active {
     display: block;
   }
+
   /* Gallery */
   .gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
+    padding: 0 40px 40px;
   }
-  .gallery img, .gallery video {
+  .gallery img, .gallery video, .gallery .youtube-embed {
     width: 200px;
     border-radius: 8px;
     cursor: pointer;
   }
+
   /* Lightbox */
   .lightbox {
     display: none;
@@ -134,13 +143,15 @@
     justify-content: center;
     align-items: center;
   }
-  .lightbox img, .lightbox video {
+  .lightbox img, .lightbox video, .lightbox iframe {
     max-width: 90%;
     max-height: 90%;
   }
   .lightbox:target {
     display: flex;
   }
+
+  /* Responsive */
   @media (max-width: 800px) {
     .project-hero {
       flex-direction: column;
@@ -148,29 +159,34 @@
     }
     .cover-image { width: 80%; min-width: auto; }
     .project-info { width: 100%; }
-    .gallery img, .gallery video { width: 45%; }
+    .gallery img, .gallery video, .gallery .youtube-embed { width: 45%; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Zenne Rotteveel</h1>
+  <h1>Your Name</h1>
 </header>
 
 <a class="back-btn" href="../index.html">← Return to Portfolio</a>
 
 <section class="project-hero">
+  <!-- Left Cover Image -->
   <div class="cover-image">
-    <img src="../media/besttraining-thumbnail.jpg" alt="Project Cover">
+    <img src="../media/project1-cover.jpg" alt="Project Cover">
     <div class="cover-overlay">
       <h3>Episode 1</h3>
-      <p>Short description overlaying image.</p>
+      <p>Short description overlaying the image.</p>
     </div>
   </div>
+
+  <!-- Right Project Info -->
   <div class="project-info">
     <div class="label">Netflix Original</div>
-    <h2>BEST training video's</h2>
+    <h2>Project 1 Title</h2>
+
+    <!-- Tabs -->
     <div class="tabs">
       <button class="tab-btn active" data-tab="description">Description</button>
       <button class="tab-btn" data-tab="myrole">My Role</button>
@@ -184,18 +200,30 @@
   </div>
 </section>
 
+<!-- Gallery -->
 <section class="gallery">
-  <a href="#img1"><img src="../media/buas-edu-thumbnail.jpg" alt="Project Image 1"></a>
-  <a href="#vid1"><video src=iframe width="560" height="315" src="https://www.youtube.com/embed/q8OUDr5ljo4?si=FoGnZoO5pAFgptnq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>" muted></video></a>
-</section>
+  <!-- Image Lightbox -->
+  <a href="#img1"><img src="../media/project1-img1.jpg" alt="Project Image 1"></a>
+  <div class="lightbox" id="img1">
+    <a href="#"><img src="../media/project1-img1.jpg" alt="Project Image 1"></a>
+  </div>
 
-<!-- Lightbox elements -->
-<div class="lightbox" id="img1">
-  <a href="#"><img src="../media/stella-thumbnail.jpg" alt="Project Image 1"></a>
-</div>
-<div class="lightbox" id="vid1">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/46NkkB3TUx4?si=pvtIAgN-sYHmipeL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> controls autoplay></video>/>
-</div>
+  <!-- Self-hosted Video Lightbox -->
+  <a href="#vid1"><video src="../media/project1-video.mp4" muted></video></a>
+  <div class="lightbox" id="vid1">
+    <a href="#"><video src="../media/project1-video.mp4" controls autoplay></video></a>
+  </div>
+
+  <!-- YouTube Embed -->
+  <a href="#yt1" class="youtube-embed">
+    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="YouTube Thumbnail">
+  </a>
+  <div class="lightbox" id="yt1">
+    <a href="#">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/q8OUDr5ljo4?si=ynQ-9l_AuVJLzPEl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </a>
+  </div>
+</section>
 
 <script>
   // Tab functionality
