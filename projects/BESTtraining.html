@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project 1 | Portfolio</title>
+<title>BEST Trainings | Portfolio</title>
 <style>
   body {
     margin: 0;
@@ -124,7 +124,7 @@
     gap: 16px;
     padding: 0 40px 40px;
   }
-  .gallery img, .gallery video, .gallery .youtube-embed {
+  .gallery img, .gallery video, .gallery .youtube-thumb {
     width: 200px;
     border-radius: 8px;
     cursor: pointer;
@@ -143,12 +143,21 @@
     justify-content: center;
     align-items: center;
   }
+  .lightbox.active {
+    display: flex;
+  }
   .lightbox img, .lightbox video, .lightbox iframe {
     max-width: 90%;
     max-height: 90%;
   }
-  .lightbox:target {
-    display: flex;
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 300;
   }
 
   /* Responsive */
@@ -159,14 +168,14 @@
     }
     .cover-image { width: 80%; min-width: auto; }
     .project-info { width: 100%; }
-    .gallery img, .gallery video, .gallery .youtube-embed { width: 45%; }
+    .gallery img, .gallery video, .gallery .youtube-thumb { width: 45%; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Your Name</h1>
+  <h1>Zenne Rotteveel</h1>
 </header>
 
 <a class="back-btn" href="../index.html">← Return to Portfolio</a>
@@ -174,7 +183,7 @@
 <section class="project-hero">
   <!-- Left Cover Image -->
   <div class="cover-image">
-    <img src="../media/project1-cover.jpg" alt="Project Cover">
+    <img src="../media/besttraining-thumbnail.jpg" alt="Project Cover">
     <div class="cover-overlay">
       <h3>Episode 1</h3>
       <p>Short description overlaying the image.</p>
@@ -184,7 +193,7 @@
   <!-- Right Project Info -->
   <div class="project-info">
     <div class="label">Netflix Original</div>
-    <h2>Project 1 Title</h2>
+    <h2>BEST Trainings</h2>
 
     <!-- Tabs -->
     <div class="tabs">
@@ -203,27 +212,30 @@
 <!-- Gallery -->
 <section class="gallery">
   <!-- Image Lightbox -->
-  <a href="#img1"><img src="../media/project1-img1.jpg" alt="Project Image 1"></a>
-  <div class="lightbox" id="img1">
-    <a href="#"><img src="../media/project1-img1.jpg" alt="Project Image 1"></a>
-  </div>
+  <img class="open-lightbox" data-target="img1" src="../media/stella-thumbnail.jpg" alt="Project Image 1">
 
-  <!-- Self-hosted Video Lightbox -->
-  <a href="#vid1"><video src="../media/project1-video.mp4" muted></video></a>
-  <div class="lightbox" id="vid1">
-    <a href="#"><video src="../media/project1-video.mp4" controls autoplay></video></a>
-  </div>
+  <!-- Video Lightbox -->
+  <video class="open-lightbox" data-target="vid1" src="../media/project1-video.mp4" muted></video>
 
   <!-- YouTube Embed -->
-  <a href="#yt1" class="youtube-embed">
-    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="YouTube Thumbnail">
-  </a>
-  <div class="lightbox" id="yt1">
-    <a href="#">
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/q8OUDr5ljo4?si=ynQ-9l_AuVJLzPEl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </a>
-  </div>
+  <img class="open-lightbox youtube-thumb" data-target="yt1" src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="YouTube Thumbnail">
 </section>
+
+<!-- Lightboxes -->
+<div class="lightbox" id="img1">
+  <span class="lightbox-close">&times;</span>
+  <img src="../media/project1-img1.jpg" alt="Project Image 1">
+</div>
+
+<div class="lightbox" id="vid1">
+  <span class="lightbox-close">&times;</span>
+  <video src="../media/project1-video.mp4" controls autoplay></video>
+</div>
+
+<div class="lightbox" id="yt1">
+  <span class="lightbox-close">&times;</span>
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/q8OUDr5ljo4?si=ynQ-9l_AuVJLzPEl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 <script>
   // Tab functionality
@@ -237,6 +249,41 @@
 
       tabContents.forEach(c => c.classList.remove('active'));
       document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Lightbox functionality
+  const openBtns = document.querySelectorAll('.open-lightbox');
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const lb = document.getElementById(targetId);
+      if (lb) lb.classList.add('active');
+    });
+  });
+
+  const lightboxes = document.querySelectorAll('.lightbox');
+  lightboxes.forEach(lb => {
+    const iframe = lb.querySelector('iframe');
+    const video = lb.querySelector('video');
+
+    // Close button
+    const closeBtn = lb.querySelector('.lightbox-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        lb.classList.remove('active');
+        if (iframe) iframe.src = iframe.src; // stops YouTube autoplay
+        if (video) video.pause();
+      });
+    }
+
+    // Click outside content
+    lb.addEventListener('click', e => {
+      if (e.target === lb) {
+        lb.classList.remove('active');
+        if (iframe) iframe.src = iframe.src;
+        if (video) video.pause();
+      }
     });
   });
 </script>
