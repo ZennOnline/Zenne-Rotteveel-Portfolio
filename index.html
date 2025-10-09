@@ -6,181 +6,42 @@
 <title>Zenne Rotteveel | Portfolio</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: #141414;
-    color: #fff;
-    overflow-x: hidden;
-  }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; background-color: #141414; color: #fff; overflow-x: hidden; }
 
   /* Navbar */
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 40px;
-    background-color: rgba(20,20,20,0.9);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  header h1 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #e50914;
-    letter-spacing: 0.5px;
-  }
-
-  header input {
-    background: #000;
-    border: 1px solid #333;
-    color: #fff;
-    border-radius: 4px;
-    padding: 8px 10px;
-    width: 220px;
-    font-size: 0.9rem;
-  }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background-color: rgba(20,20,20,0.9); position: sticky; top: 0; z-index: 10; }
+  header h1 { font-size: 1.4rem; font-weight: 700; color: #e50914; letter-spacing: 0.5px; }
+  header input { background: #000; border: 1px solid #333; color: #fff; border-radius: 4px; padding: 8px 10px; width: 220px; font-size: 0.9rem; }
 
   /* HERO SECTION */
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: 60px 60px;
-    background: #000;
-  }
-
-  .hero video, .hero img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    filter: brightness(60%);
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 600px;
-  }
-
-  .hero-content h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-    line-height: 1.4;
-    color: #ccc;
-    margin-bottom: 24px;
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 12px;
-  }
-
-  .hero-buttons a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    background: #e50914;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: background 0.3s ease;
-  }
-
-  .hero-buttons a:nth-child(2) {
-    background: rgba(109,109,110,0.7);
-  }
-
-  .hero-buttons a:hover {
-    background: #b20710;
-  }
-
-  .hero-buttons a:nth-child(2):hover {
-    background: rgba(109,109,110,0.9);
-  }
+  .hero { position: relative; width: 100%; height: 80vh; overflow: hidden; display: flex; align-items: flex-end; justify-content: flex-start; padding: 60px 60px; background: #000; }
+  .hero video, .hero img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: brightness(60%); }
+  .hero-content { position: relative; z-index: 1; max-width: 600px; }
+  .hero-content h2 { font-size: 3rem; font-weight: 700; margin-bottom: 16px; }
+  .hero-content p { font-size: 1rem; line-height: 1.4; color: #ccc; margin-bottom: 24px; }
+  .hero-buttons { display: flex; gap: 12px; }
+  .hero-buttons a { text-decoration: none; color: #fff; font-weight: 600; background: #e50914; padding: 10px 20px; border-radius: 4px; transition: background 0.3s ease; }
+  .hero-buttons a:nth-child(2) { background: rgba(109,109,110,0.7); }
+  .hero-buttons a:hover { background: #b20710; }
+  .hero-buttons a:nth-child(2):hover { background: rgba(109,109,110,0.9); }
 
   /* Section Titles */
-  h2.section-title {
-    margin: 24px 40px 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
+  h2.section-title { margin: 24px 40px 10px; font-size: 1.2rem; font-weight: 600; }
 
   /* Scrollable rows */
-  .row {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 0 40px 30px;
-  }
-
-  .row::-webkit-scrollbar {
-    height: 8px;
-  }
-  .row::-webkit-scrollbar-thumb {
-    background-color: #333;
-    border-radius: 10px;
-  }
+  .row { display: flex; overflow-x: auto; scroll-behavior: smooth; padding: 0 40px 30px; }
+  .row::-webkit-scrollbar { height: 8px; }
+  .row::-webkit-scrollbar-thumb { background-color: #333; border-radius: 10px; }
 
   /* Cards */
-  .card {
-    flex: 0 0 auto;
-    width: 200px;
-    margin-right: 16px;
-    border-radius: 8px;
-    background-color: #1f1f1f;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
+  .card { flex: 0 0 auto; width: 200px; margin-right: 16px; border-radius: 8px; background-color: #1f1f1f; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; text-decoration: none; color: inherit; }
+  .card:hover { transform: scale(1.06); box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .card img { width: 100%; height: 120px; object-fit: cover; border-top-left-radius: 8px; border-top-right-radius: 8px; }
+  .card .info { padding: 10px; }
+  .card .info h3 { font-size: 0.95rem; margin-bottom: 4px; color: #fff; }
+  .card .info p { font-size: 0.8rem; color: #aaa; line-height: 1.2; }
 
-  .card:hover {
-    transform: scale(1.06);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  }
-
-  .card img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-
-  .card .info {
-    padding: 10px;
-  }
-
-  .card .info h3 {
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-    color: #fff;
-  }
-
-  .card .info p {
-    font-size: 0.8rem;
-    color: #aaa;
-    line-height: 1.2;
-  }
-
-  footer {
-    text-align: center;
-    color: #777;
-    font-size: 0.8rem;
-    padding: 30px 0;
-  }
+  footer { text-align: center; color: #777; font-size: 0.8rem; padding: 30px 0; }
 
   @media (max-width: 600px) {
     header { flex-direction: column; gap: 10px; }
@@ -191,134 +52,175 @@
 </style>
 </head>
 <body>
-  <header>
-    <h1>Zenne Rotteveel</h1>
-    <input id="searchInput" type="text" placeholder="Search..." />
-  </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <!-- Replace with your own background video or image -->
-    <video autoplay muted loop playsinline>
-      <source src="your-video.mp4" type="video/mp4">
-      <img src="your-fallback-image.jpg" alt="Background">
-    </video>
+<header>
+  <h1>Zenne Rotteveel</h1>
+  <input id="searchInput" type="text" placeholder="Search experience, projects..." />
+</header>
 
-    <div class="hero-content">
-      <h2>Zenne Rotteveel</h2>
-      <p>Creative professional with a passion for storytelling, media production, and concept development. I thrive in environments where creativity meets strategy — transforming ideas into impactful content that resonates.</p>
-      <div class="hero-buttons">
-        <a href="https://www.linkedin.com/in/zennerotteveel" target="_blank">View LinkedIn</a>
-        <a href="YourCV.pdf" download>Download CV</a>
-      </div>
+<!-- HERO SECTION -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="media/hero-video.mp4" type="video/mp4">
+    <img src="media/hero-fallback.jpg" alt="Background">
+  </video>
+
+  <div class="hero-content">
+    <h2>Zenne Rotteveel</h2>
+    <p>Creative professional with a passion for storytelling, media production, and concept development. I transform ideas into impactful content.</p>
+    <div class="hero-buttons">
+      <a href="https://www.linkedin.com/in/zennerotteveel/" target="_blank">View LinkedIn</a>
+      <a href="YourCV.pdf" download>Download CV</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- EXPERIENCE -->
-  <section>
-    <h2 class="section-title">Experience</h2>
-    <div class="row">
-      <div class="card" data-title="Marketing Internship">
-        <img src="https://picsum.photos/id/1011/400/200" alt="Marketing Internship" />
-        <div class="info">
-          <h3>Marketing Internship</h3>
-          <p>2024 — ABC Agency<br>Worked on brand campaigns and client outreach.</p>
-        </div>
+<!-- EXPERIENCE -->
+<section>
+  <h2 class="section-title">Experience</h2>
+  <div class="row">
+    <a class="card" href="experience/exp1.html">
+      <img src="media/experience1.jpg" alt="Marketing Internship">
+      <div class="info">
+        <h3>Marketing Internship</h3>
+        <p>2024 — ABC Agency</p>
       </div>
+    </a>
 
-      <div class="card" data-title="Content Strategist">
-        <img src="https://picsum.photos/id/1015/400/200" alt="Content Strategist" />
-        <div class="info">
-          <h3>Content Strategist</h3>
-          <p>2023 — Stokvis Content<br>Developed creative concepts and editorial calendars.</p>
-        </div>
+    <a class="card" href="experience/exp2.html">
+      <img src="media/experience2.jpg" alt="Content Strategist">
+      <div class="info">
+        <h3>Content Strategist</h3>
+        <p>2023 — Stokvis Content</p>
       </div>
+    </a>
 
-            <div class="card" data-title="Content Strategist">
-        <img src="https://picsum.photos/id/1015/400/200" alt="Content Strategist" />
-        <div class="info">
-          <h3>Content Strategist</h3>
-          <p>2023 — Stokvis Content<br>Developed creative concepts and editorial calendars.</p>
-        </div>
+    <a class="card" href="experience/exp3.html">
+      <img src="media/experience3.jpg" alt="Marketing Internship">
+      <div class="info">
+        <h3>Marketing Internship</h3>
+        <p>2024 — ABC Agency</p>
       </div>
+    </a>
 
-            <div class="card" data-title="Content Strategist">
-        <img src="https://picsum.photos/id/1015/400/200" alt="Content Strategist" />
-        <div class="info">
-          <h3>Content Strategist</h3>
-          <p>2023 — Stokvis Content<br>Developed creative concepts and editorial calendars.</p>
-        </div>
+    <a class="card" href="experience/exp4.html">
+      <img src="media/experience4.jpg" alt="Marketing Internship">
+      <div class="info">
+        <h3>Marketing Internship</h3>
+        <p>2024 — ABC Agency</p>
       </div>
+    </a>
 
-            <div class="card" data-title="Content Strategist">
-        <img src="https://picsum.photos/id/1015/400/200" alt="Content Strategist" />
-        <div class="info">
-          <h3>Content Strategist</h3>
-          <p>2023 — Stokvis Content<br>Developed creative concepts and editorial calendars.</p>
-        </div>
+    <a class="card" href="experience/exp5.html">
+      <img src="media/experience5.jpg" alt="Marketing Internship">
+      <div class="info">
+        <h3>Marketing Internship</h3>
+        <p>2024 — ABC Agency</p>
       </div>
+    </a>
 
-            <div class="card" data-title="Content Strategist">
-        <img src="https://picsum.photos/id/1015/400/200" alt="Content Strategist" />
-        <div class="info">
-          <h3>Content Strategist</h3>
-          <p>2023 — Stokvis Content<br>Developed creative concepts and editorial calendars.</p>
-        </div>
+    <a class="card" href="experience/exp6.html">
+      <img src="media/experience6.jpg" alt="Marketing Internship">
+      <div class="info">
+        <h3>Marketing Internship</h3>
+        <p>2024 — ABC Agency</p>
       </div>
-    </div>
-  </section>
+    </a>
+  </div>
+</section>
 
-  <!-- EDUCATION -->
-  <section>
-    <h2 class="section-title">Education</h2>
-    <div class="row">
-      <div class="card" data-title="Creative Business BA">
-        <img src="https://picsum.photos/id/1005/400/200" alt="Creative Business" />
-        <div class="info">
-          <h3>Creative Business, BA</h3>
-          <p>2021 — Breda University<br>Focused on media production and marketing strategy.</p>
-        </div>
+<!-- EDUCATION -->
+<section>
+  <h2 class="section-title">Education</h2>
+  <div class="row">
+    <a class="card" href="education/BUAS.html">
+      <img src="media/BUAS.jpg" alt="Creative Business BA">
+      <div class="info">
+        <h3>Creative Business, HBO</h3>
+        <p>2021 — Breda University of Applied Sciences</p>
       </div>
+    </a>
 
-            <div class="card" data-title="Creative Business BA">
-        <img src="https://picsum.photos/id/1005/400/200" alt="Creative Business" />
-        <div class="info">
-          <h3>Creative Business, BA</h3>
-          <p>2021 — Breda University<br>Focused on media production and marketing strategy.</p>
-        </div>
+    <a class="card" href="education/INHOLLAND.html">
+      <img src="media/INHOLLAND.jpg" alt="Communicatie HBO">
+      <div class="info">
+        <h3>Communicatie, HBO</h3>
+        <p>2021 — Hogeschool Inholland Den Haag</p>
       </div>
-    </div>
-  </section>
+    </a>
+  </div>
+</section>
 
-  <!-- PROJECTS -->
-  <section>
-    <h2 class="section-title">Projects</h2>
-    <div class="row">
-      <div class="card" data-title="Tuinplezier Campaign">
-        <img src="https://picsum.photos/id/1041/400/200" alt="Tuinplezier Campaign" />
-        <div class="info">
-          <h3>Tuinplezier Campaign</h3>
-          <p>Concept & production for an online gardening content series.</p>
-        </div>
+<!-- PROJECTS -->
+<section>
+  <h2 class="section-title">Projects</h2>
+  <div class="row">
+    <a class="card" href="projects/project1.html">
+      <img src="media/project1.jpg" alt="Tuinplezier Campaign">
+      <div class="info">
+        <h3>NAME/h3>
+        <p>DESCRIPTION</p>
       </div>
-    </div>
-  </section>
+    </a>
 
-  <footer>
-    © 2025 Zenne Rotteveel — Netflix-style portfolio.
-  </footer>
+    <a class="card" href="projects/project2.html">
+      <img src="media/project2.jpg" alt="Portfolio Website">
+      <div class="info">
+        <h3>NAME</h3>
+        <p>DESCRIPTION</p>
+      </div>
+    </a>
 
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const cards = document.querySelectorAll('.card');
+    <a class="card" href="projects/project3.html">
+      <img src="media/project3.jpg" alt="Portfolio Website">
+      <div class="info">
+        <h3>NAME</h3>
+        <p>DESCRIPTION</p>
+      </div>
+    </a>
 
-    searchInput.addEventListener('input', function() {
-      const query = this.value.toLowerCase();
-      cards.forEach(card => {
-        const title = card.dataset.title.toLowerCase();
-        card.style.display = title.includes(query) ? 'block' : 'none';
-      });
-    });
-  </script>
+    <a class="card" href="projects/project4.html">
+      <img src="media/project4.jpg" alt="Portfolio Website">
+      <div class="info">
+        <h3>NAME</h3>
+        <p>DESCRIPTION</p>
+      </div>
+    </a>
+
+    <a class="card" href="projects/project5.html">
+      <img src="media/project5.jpg" alt="Portfolio Website">
+      <div class="info">
+        <h3>NAME</h3>
+        <p>DESCRIPTION</p>
+      </div>
+    </a>
+
+    <a class="card" href="projects/project6.html">
+      <img src="media/project6.jpg" alt="Portfolio Website">
+      <div class="info">
+        <h3>NAME</h3>
+        <p>DESCRIPTION</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2025 Zenne Rotteveel — Netflix-style portfolio.
+</footer>
+
+<script>
+const searchInput = document.getElementById('searchInput');
+const cards = document.querySelectorAll('.card');
+
+searchInput.addEventListener('input', function() {
+  const query = this.value.toLowerCase();
+  cards.forEach(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    card.style.display = title.includes(query) ? 'block' : 'none';
+  });
+});
+</script>
+
 </body>
 </html>
