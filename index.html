@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Your Name | Portfolio</title>
+<title>Zenne Rotteveel | Portfolio</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -40,6 +40,76 @@
     padding: 8px 10px;
     width: 220px;
     font-size: 0.9rem;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 60px 60px;
+    background: #000;
+  }
+
+  .hero video, .hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(60%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+  }
+
+  .hero-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #ccc;
+    margin-bottom: 24px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .hero-buttons a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    background: #e50914;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  .hero-buttons a:nth-child(2) {
+    background: rgba(109,109,110,0.7);
+  }
+
+  .hero-buttons a:hover {
+    background: #b20710;
+  }
+
+  .hero-buttons a:nth-child(2):hover {
+    background: rgba(109,109,110,0.9);
   }
 
   /* Section Titles */
@@ -115,18 +185,39 @@
   @media (max-width: 600px) {
     header { flex-direction: column; gap: 10px; }
     header input { width: 100%; }
+    .hero { padding: 30px; height: 60vh; }
+    .hero-content h2 { font-size: 2rem; }
   }
 </style>
 </head>
 <body>
   <header>
-    <h1>Your Name</h1>
-    <input id="searchInput" type="text" placeholder="Search experience, projects..." />
+    <h1>Zenne Rotteveel</h1>
+    <input id="searchInput" type="text" placeholder="Search..." />
   </header>
 
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <!-- Replace with your own background video or image -->
+    <video autoplay muted loop playsinline>
+      <source src="your-video.mp4" type="video/mp4">
+      <img src="your-fallback-image.jpg" alt="Background">
+    </video>
+
+    <div class="hero-content">
+      <h2>Zenne Rotteveel</h2>
+      <p>Creative professional with a passion for storytelling, media production, and concept development. I thrive in environments where creativity meets strategy — transforming ideas into impactful content that resonates.</p>
+      <div class="hero-buttons">
+        <a href="https://www.linkedin.com/in/zennerotteveel" target="_blank">View LinkedIn</a>
+        <a href="YourCV.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
   <section>
     <h2 class="section-title">Experience</h2>
-    <div class="row" id="experienceRow">
+    <div class="row">
       <div class="card" data-title="Marketing Internship">
         <img src="https://picsum.photos/id/1011/400/200" alt="Marketing Internship" />
         <div class="info">
@@ -143,19 +234,44 @@
         </div>
       </div>
 
-      <div class="card" data-title="Social Media Coordinator">
-        <img src="https://picsum.photos/id/1025/400/200" alt="Social Media Coordinator" />
+            <div class="card" data-title="Content Strategist">
+        <img src="https://picsum.photos/id/1015/400/200" alt="Content Strategist" />
         <div class="info">
-          <h3>Social Media Coordinator</h3>
-          <p>2022 — Freelance<br>Managed campaigns and analytics across platforms.</p>
+          <h3>Content Strategist</h3>
+          <p>2023 — Stokvis Content<br>Developed creative concepts and editorial calendars.</p>
+        </div>
+      </div>
+
+            <div class="card" data-title="Content Strategist">
+        <img src="https://picsum.photos/id/1015/400/200" alt="Content Strategist" />
+        <div class="info">
+          <h3>Content Strategist</h3>
+          <p>2023 — Stokvis Content<br>Developed creative concepts and editorial calendars.</p>
+        </div>
+      </div>
+
+            <div class="card" data-title="Content Strategist">
+        <img src="https://picsum.photos/id/1015/400/200" alt="Content Strategist" />
+        <div class="info">
+          <h3>Content Strategist</h3>
+          <p>2023 — Stokvis Content<br>Developed creative concepts and editorial calendars.</p>
+        </div>
+      </div>
+
+            <div class="card" data-title="Content Strategist">
+        <img src="https://picsum.photos/id/1015/400/200" alt="Content Strategist" />
+        <div class="info">
+          <h3>Content Strategist</h3>
+          <p>2023 — Stokvis Content<br>Developed creative concepts and editorial calendars.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- EDUCATION -->
   <section>
     <h2 class="section-title">Education</h2>
-    <div class="row" id="educationRow">
+    <div class="row">
       <div class="card" data-title="Creative Business BA">
         <img src="https://picsum.photos/id/1005/400/200" alt="Creative Business" />
         <div class="info">
@@ -164,19 +280,20 @@
         </div>
       </div>
 
-      <div class="card" data-title="Exchange Semester — Berlin">
-        <img src="https://picsum.photos/id/1035/400/200" alt="Exchange Semester Berlin" />
+            <div class="card" data-title="Creative Business BA">
+        <img src="https://picsum.photos/id/1005/400/200" alt="Creative Business" />
         <div class="info">
-          <h3>Exchange Semester — Berlin</h3>
-          <p>2020 — Media & Communication<br>Explored cross-cultural creative industries.</p>
+          <h3>Creative Business, BA</h3>
+          <p>2021 — Breda University<br>Focused on media production and marketing strategy.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- PROJECTS -->
   <section>
     <h2 class="section-title">Projects</h2>
-    <div class="row" id="projectsRow">
+    <div class="row">
       <div class="card" data-title="Tuinplezier Campaign">
         <img src="https://picsum.photos/id/1041/400/200" alt="Tuinplezier Campaign" />
         <div class="info">
@@ -184,27 +301,11 @@
           <p>Concept & production for an online gardening content series.</p>
         </div>
       </div>
-
-      <div class="card" data-title="Portfolio Website">
-        <img src="https://picsum.photos/id/1043/400/200" alt="Portfolio Website" />
-        <div class="info">
-          <h3>Portfolio Website</h3>
-          <p>Designed and coded personal portfolio using HTML & CSS.</p>
-        </div>
-      </div>
-
-      <div class="card" data-title="Le Mans Feature">
-        <img src="https://picsum.photos/id/1050/400/200" alt="Le Mans Feature" />
-        <div class="info">
-          <h3>Le Mans Feature</h3>
-          <p>Researched and scripted automotive feature episode.</p>
-        </div>
-      </div>
     </div>
   </section>
 
   <footer>
-    © 2025 Your Name — Netflix-style portfolio. Customize freely.
+    © 2025 Zenne Rotteveel — Netflix-style portfolio.
   </footer>
 
   <script>
@@ -215,11 +316,7 @@
       const query = this.value.toLowerCase();
       cards.forEach(card => {
         const title = card.dataset.title.toLowerCase();
-        if (title.includes(query)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+        card.style.display = title.includes(query) ? 'block' : 'none';
       });
     });
   </script>
