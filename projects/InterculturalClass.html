@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project | Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: rgba(20,20,20,0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  header h1 {
+    color: #e50914;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+
+  header input[type="text"] {
+    background: #000;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 6px 10px;
+    color: #fff;
+    width: 200px;
+  }
+
+  /* ===== MAIN LAYOUT ===== */
+  .project-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+    gap: 40px;
+  }
+
+  /* Left media (image or video) */
+  .project-media {
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    position: relative;
+  }
+
+  .project-media img, .project-media video {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .project-media .media-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  }
+
+  .media-overlay h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .media-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  /* ===== RIGHT CONTENT ===== */
+  .project-details {
+    flex: 2;
+    min-width: 300px;
+  }
+
+  .project-details .label {
+    color: #e50914;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .project-details h2 {
+    font-size: 2.5rem;
+    margin: 0 0 10px;
+  }
+
+  .meta-info {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 20px;
+  }
+
+  .rating {
+    color: #f5c518;
+    font-size: 1.1rem;
+    margin-left: 5px;
+  }
+
+  /* ===== TABS ===== */
+  .tabs {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+  }
+
+  .tabs button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+
+  .tabs button.active {
+    border-bottom: 2px solid #e50914;
+  }
+
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== THUMBNAIL ROW ===== */
+  .thumbnail-row {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .thumbnail-row img {
+    width: 180px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .thumbnail-row img:hover {
+    transform: scale(1.05);
+  }
+
+  /* ===== LIGHTBOX ===== */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox img, .lightbox video, .lightbox iframe {
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .project-container {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="back-home">Zenne Rotteveel</h1>
+  <input type="text" placeholder="Search...">
+</header>
+
+<section class="project-container">
+  <!-- Left: Media -->
+  <div class="project-media">
+    <video src="../media/project1.mp4" autoplay muted loop></video>
+    <div class="media-overlay">
+      <h3>Episode 1: “The Beginning”</h3>
+      <p>A short description overlaying the image or video background.</p>
+    </div>
+  </div>
+
+  <!-- Right: Details -->
+  <div class="project-details">
+    <div class="label">NETFLIX ORIGINAL</div>
+    <h2>Project Title</h2>
+    <div class="meta-info">2024 | 2 Projects | Creative Documentary <span class="rating">★ 9.0</span></div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      <button class="tab-btn" data-tab="role">My Role</button>
+      <button class="tab-btn" data-tab="gallery">Gallery</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="overview" class="tab-content active">
+      <p>This project explores creative storytelling through visuals and sound. It involved research, production, and editing phases.</p>
+    </div>
+
+    <div id="role" class="tab-content">
+      <p>My role included concept development, production coordination, and post-editing using Adobe Premiere and After Effects.</p>
+    </div>
+
+    <div id="gallery" class="tab-content">
+      <div class="thumbnail-row">
+        <img src="../media/thumb1.jpg" class="thumb" data-target="light1" alt="Gallery 1">
+        <img src="../media/thumb2.jpg" class="thumb" data-target="light2" alt="Gallery 2">
+        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="thumb" data-target="yt1" alt="YouTube">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightboxes -->
+<div class="lightbox" id="light1">
+  <span class="lightbox-close">&times;</span>
+  <img src="../media/thumb1.jpg" alt="">
+</div>
+
+<div class="lightbox" id="light2">
+  <span class="lightbox-close">&times;</span>
+  <img src="../media/thumb2.jpg" alt="">
+</div>
+
+<div class="lightbox" id="yt1">
+  <span class="lightbox-close">&times;</span>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<script>
+  // Back to home
+  document.getElementById('back-home').addEventListener('click', () => {
+    window.location.href = '../index.html';
+  });
+
+  // Tabs
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      tabContents.forEach(c => c.classList.remove('active'));
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Lightboxes
+  const thumbs = document.querySelectorAll('.thumb');
+  const lightboxes = document.querySelectorAll('.lightbox');
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const target = document.getElementById(thumb.dataset.target);
+      if (target) target.classList.add('active');
+    });
+  });
+
+  lightboxes.forEach(lb => {
+    const iframe = lb.querySelector('iframe');
+    const video = lb.querySelector('video');
+
+    lb.querySelector('.lightbox-close').addEventListener('click', () => {
+      lb.classList.remove('active');
+      if (iframe) iframe.src = iframe.src;
+      if (video) video.pause();
+    });
+
+    lb.addEventListener('click', e => {
+      if (e.target === lb) {
+        lb.classList.remove('active');
+        if (iframe) iframe.src = iframe.src;
+        if (video) video.pause();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
