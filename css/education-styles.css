@@ -36,21 +36,11 @@ header input {
     font-size: 0.9rem; 
 }
 
+
 .content {
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
-}
-
-.back-btn-link {
-        color: #e50914;
-        text-decoration: none;
-        font-size: 1.4rem;
-        font-weight: 700;
-}
-
-.back-btn-link:hover {
-        Text-decoration: underline;
 }
 
 img, video {
@@ -74,6 +64,18 @@ img, video {
 .row::-webkit-scrollbar-thumb {
     background-color: #333;
     border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+    header { flex-direction: column; gap: 10px; }
+    header input { width: 100%; }
+      .project-detail-container {
+        flex-direction: column;
+      }
+      .project-poster {
+        width: 100%;
+        aspect-ratio: auto;
+      }
 }
 
 footer {
