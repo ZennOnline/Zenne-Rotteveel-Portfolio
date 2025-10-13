@@ -1,0 +1,36 @@
+<header>
+  <h1 onclick="window.location.href='index.html'" style="cursor:pointer;">Zenne Rotteveel</h1>
+  <input id="searchInput" type="text" placeholder="Zoeken..." />
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: rgba(20,20,20,0.9);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  header h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #e50914;
+    letter-spacing: 0.5px;
+  }
+  header input {
+    background: #000;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 4px;
+    padding: 8px 10px;
+    width: 220px;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    header { flex-direction: column; gap: 10px; }
+    header input { width: 100%; }
+  }
+</style>
