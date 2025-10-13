@@ -229,10 +229,23 @@ header input {
     box-sizing: border-box;
 }
 
-.tab-content p {
+.tab-content p,
+.tab-content ul {
   max-width: 750px;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+}
+
+/* Style the list itself */
+.tab-content ul {
+  padding-left: 1.2rem; /* indent bullets slightly */
+  list-style-type: disc; /* regular bullets */
+}
+
+/* Style the list items for consistency */
+.tab-content li {
+  margin-bottom: 0.5rem;
+  color: #ddd; /* softer white */
 }
 
 /* Inline gallery (under Overview/My Role) */
