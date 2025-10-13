@@ -29,6 +29,7 @@
       font-weight: 700; 
       color: #e50914; 
       letter-spacing: 0.5px; 
+      cursor: pointer;
     }
     header input { 
       background: #000; 
@@ -43,7 +44,7 @@
     /* Main layout */
     .project-detail-container {
       display: flex;
-      align-items: stretch;
+      align-items: flex-start;
       gap: 2rem;
       padding: 2rem;
     }
@@ -75,13 +76,14 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
     .project-meta {
-      color: #aaa;
+      color: #e50914;
       text-transform: uppercase;
+      font-weight: bold;
       font-size: 0.8rem;
+      margin-bottom: 6px;
     }
 
     .project-title {
@@ -126,6 +128,7 @@
 
     .tab-content.active {
       display: block;
+      width: 900px;
     }
 
     /* Inline gallery (under Overview/My Role) */
@@ -136,6 +139,7 @@
       margin-top: 1rem;
       padding: 0 40px 40px;
       align-items: flex-end;
+      justify-content: space-between;
     }
 
     .inline-gallery img, .gallery video, .gallery .youtube-thumb {
@@ -203,7 +207,7 @@
   <main class="project-detail-container">
     <!-- Left Poster -->
     <div class="project-poster">
-      <img src="../media/project1-poster.jpg" alt="Project Poster" />
+      <img src="../media/testtjarda.jpg" alt="Project Poster" />
       <div class="poster-info">
         <h3>Resume</h3>
         <p>Date, year — Date, year • Company • 1 Season</p>
