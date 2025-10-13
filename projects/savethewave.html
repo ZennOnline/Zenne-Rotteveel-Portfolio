@@ -1,1 +1,141 @@
-<link rel="stylesheet" href="css/projects-style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Title | Zenne Rotteveel</title>
+<link rel="stylesheet" href="../css/projects-style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1 id="header-title">Zenne Rotteveel</h1>
+    <input type="text" id="search" placeholder="Search..." />
+  </header>
+
+  <main class="project-detail-container">
+    <!-- Left Poster -->
+    <div class="project-poster">
+      <img src="../media/testtjarda.jpg" alt="Project Poster" />
+      <div class="poster-info">
+        <h3>Resume</h3>
+        <p>Date, year — Date, year • Company • 1 Season</p>
+      </div>
+    </div>
+
+    <!-- Right Content -->
+    <div class="project-info">
+      <p class="project-meta">ZENNE ROTTEVEEL ORIGINAL</p>
+      <h2 class="project-title">Project Title</h2>
+      <p class="meta-info">2024 | 2 Projects | Creative Documentary <span class="rating">★ 9.0</span></p>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" data-tab="overview">Overview</button>
+        <button class="tab" data-tab="my-role">My Role</button>
+        <button class="tab" data-tab="gallery">Gallery</button>
+      </div>
+
+<!-- Tab Content -->
+   <!-- Overview items -->
+      <div class="tab-content active" id="overview">
+        <p>
+          When I began this project, my goal was to explore creative storytelling techniques through motion and brand identity. The process included concept development, research, and design execution.
+        </p>
+        <div class="inline-gallery">
+          <img src="../media/tuinplezier-thumbnail.jpg" alt="Overview Image 1" />
+        </div>
+      </div>
+   <!-- My Role items -->
+      <div class="tab-content" id="my-role">
+        <p>
+          My responsibilities included creative direction, editing, and final production delivery. I led a small team to ensure that the project met both client expectations and creative goals.
+        </p>
+        <div class="inline-gallery">
+          <img src="../media/tuinplezier-thumbnail.jpg" alt="My Role Image" />
+        </div>
+      </div>
+
+   <!-- Gallery items -->
+<div class="tab-content" id="gallery">
+<div class="gallery-grid">
+  <!-- Image -->
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <img src="../media/project1-img1.jpg" alt="Gallery Image 1">
+    </div>
+  </div>
+
+  <!-- Local video -->
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <video src="../media/project1-video1.mp4" controls></video>
+    </div>
+  </div>
+
+  <!-- YouTube embed -->
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        title="YouTube video"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Another image -->
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <img src="../media/project1-img2.jpg" alt="Gallery Image 2">
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <video src="../media/project1-video2.mp4" controls></video>
+    </div>
+  </div>
+
+  <!-- Another YouTube embed -->
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/abc123xyz" 
+        title="YouTube video"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+</div>
+</main>
+
+<footer>
+  © 2025 Zenne Rotteveel — My portfolio.
+</footer>
+
+  <script>
+    // Header click = go back
+    document.getElementById('header-title').addEventListener('click', () => {
+      window.location.href = '../index.html';
+    });
+
+    // Tabs functionality
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
