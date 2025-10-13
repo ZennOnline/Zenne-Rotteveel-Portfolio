@@ -15,19 +15,26 @@
 
   <main class="project-detail-container">
     <!-- Left Poster -->
-    <div class="project-poster">
-      <img src="../media/testtjarda.jpg" alt="Project Poster" />
-      <div class="poster-info">
-        <h3>Resume</h3>
-        <p>Date, year — Date, year • Company • 1 Season</p>
-      </div>
-    </div>
+<div class="project-poster">
+  <div class="poster-slider">
+    <img src="../media/testtjarda.jpg" class="active" alt="Poster 1">
+    <img src="../media/poster2.jpg" alt="Poster 2">
+    <img src="../media/poster3.jpg" alt="Poster 3">
+    <button class="arrow left" id="prev">&#10094;</button>
+    <button class="arrow right" id="next">&#10095;</button>
+  </div>
+
+  <div class="poster-info">
+    <h3>Resume</h3>
+    <p>Date, year — Date, year • Company • 1 Season</p>
+  </div>
+</div>
 
     <!-- Right Content -->
     <div class="project-info">
       <p class="project-meta">ZENNE ROTTEVEEL ORIGINAL</p>
-      <h2 class="project-title">Project Title</h2>
-      <p class="meta-info">2024 | 2 Projects | Creative Documentary <span class="rating">★ 9.0</span></p>
+      <h2 class="project-title">Tuinplezier</h2>
+      <p class="meta-info">2024/2025 | Multiple Projects | YouTube management <span class="rating">★ 9.0</span></p>
 
       <!-- Tabs -->
       <div class="tabs">
@@ -118,13 +125,13 @@
   © 2025 Zenne Rotteveel — My portfolio.
 </footer>
 
-  <script>
-    // Header click = go back
+<script>
+// Header click = go back
     document.getElementById('header-title').addEventListener('click', () => {
       window.location.href = '../index.html';
-    });
+});
 
-    // Tabs functionality
+// Tabs functionality
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => {
@@ -134,8 +141,29 @@
         tab.classList.add('active');
         document.getElementById(tab.dataset.tab).classList.add('active');
       });
-    });
-  </script>
+});
+
+// Poster sliders
+  const slides = document.querySelectorAll('.poster-slider img');
+  const next = document.getElementById('next');
+  const prev = document.getElementById('prev');
+  let index = 0;
+
+  function showSlide(i) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[i].classList.add('active');
+  }
+
+  next.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  });
+
+  prev.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  });
+</script>
 
 </body>
 </html>
