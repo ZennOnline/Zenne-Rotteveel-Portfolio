@@ -264,38 +264,69 @@ header input {
 }
 
 /* Gallery grid */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
+    .gallery-wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
 
-.gallery-item {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-}
+    .gallery-grid {
+        display: grid;
+        grid-auto-flow: column; /* pages are columns */
+        grid-template-columns: repeat(auto-fit, 100%); /* each page full width */
+        gap: 0;
+        transition: transform 0.5s ease;
+    }
 
-.media-wrapper {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-}
+    .gallery-page {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 per row */
+        grid-auto-rows: 200px; /* or use aspect-ratio: 16/9 in gallery-item */
+        gap: 1rem;
+    }
 
-.media-wrapper img,
-.media-wrapper video,
-.media-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center; 
-  display: block;
-  border: none;
-  border-radius: 8px;
-}
+    .gallery-item {
+        border-radius: 8px;
+        overflow: hidden;
+        background: #111;
+        aspect-ratio: 16 / 9;
+    }
+
+    .media-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 ratio for YouTube */
+    }
+
+    .media-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .gallery-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        color: #fff;
+        font-size: 2rem;
+        border: none;
+        cursor: pointer;
+        z-index: 10;
+        padding: 0 10px;
+    }
+
+    .gallery-arrow:hover {
+        text-shadow: 0 0 8px rgba(255,255,255,0.6);
+        transform: translateY(-50%) scale(1.2);
+    }
+
+    .gallery-arrow.left { left: 0; }
+    .gallery-arrow.right { right: 0; }
 
 @media (max-width: 900px) {
     header { flex-direction: column; gap: 10px; }

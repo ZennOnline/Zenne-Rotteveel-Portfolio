@@ -76,60 +76,35 @@
   </ul>
 </div>
 
-   <!-- Gallery items -->
+<!-- Gallery items -->
 <div class="tab-content" id="gallery">
-<div class="gallery-grid">
-  <!-- Image -->
-  <div class="gallery-item">
-    <div class="media-wrapper">
-      <img src="../media/project1-img1.jpg" alt="Gallery Image 1">
-    </div>
-  </div>
+  <div class="gallery-wrapper">
+    <button class="gallery-arrow left">❮</button>
 
-  <!-- Local video -->
-  <div class="gallery-item">
-    <div class="media-wrapper">
-      <video src="../media/project1-video1.mp4" controls></video>
-    </div>
-  </div>
+    <div class="gallery-grid">
+      <!-- Page 1 -->
+      <div class="gallery-page">
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/zp5Dl2mE8VY" allowfullscreen></iframe></div></div>
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/xM8wC0LvcLo" allowfullscreen></iframe></div></div>
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/lZYiMI3s1lc" allowfullscreen></iframe></div></div>
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/HCjjQOkLbMs" allowfullscreen></iframe></div></div>
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/bx1Bh8ZvH84" allowfullscreen></iframe></div></div>
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/U3t6ZQYJ6gE" allowfullscreen></iframe></div></div>
+      </div>
 
-  <!-- YouTube embed -->
-  <div class="gallery-item">
-    <div class="media-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-        title="YouTube video"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
+      <!-- Page 2 -->
+      <div class="gallery-page">
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" allowfullscreen></iframe></div></div>
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/FTQbiNvZqaY" allowfullscreen></iframe></div></div>
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe></div></div>
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/E7wJTI-1dvQ" allowfullscreen></iframe></div></div>
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe></div></div>
+        <div class="gallery-item"><div class="media-wrapper"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Another image -->
-  <div class="gallery-item">
-    <div class="media-wrapper">
-      <img src="../media/project1-img2.jpg" alt="Gallery Image 2">
-    </div>
+    <button class="gallery-arrow right">❯</button>
   </div>
-
-  <div class="gallery-item">
-    <div class="media-wrapper">
-      <video src="../media/project1-video2.mp4" controls></video>
-    </div>
-  </div>
-
-  <!-- Another YouTube embed -->
-  <div class="gallery-item">
-    <div class="media-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/abc123xyz" 
-        title="YouTube video"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-
 </div>
 </main>
 
@@ -174,7 +149,32 @@
   prev.addEventListener('click', () => {
     index = (index - 1 + slides.length) % slides.length;
     showSlide(index);
+});
+
+// Gallery sliders
+  const galleryGrid = document.querySelector('.gallery-grid');
+  const leftArrow = document.querySelector('.gallery-arrow.left');
+  const rightArrow = document.querySelector('.gallery-arrow.right');
+  const totalPages = document.querySelectorAll('.gallery-page').length;
+  let currentPage = 0;
+
+  function updateGallery() {
+   galleryGrid.style.transform = `translateX(-${currentPage * 100}%)`;
+  }
+
+  rightArrow.addEventListener('click', () => {
+    if (currentPage < totalPages - 1) {
+     currentPage++;
+      updateGallery();
+    }
   });
+
+  leftArrow.addEventListener('click', () => {
+    if (currentPage > 0) {
+      currentPage--;
+      updateGallery();
+    }
+});
 </script>
 </body>
 </html>
