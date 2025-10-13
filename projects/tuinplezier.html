@@ -148,7 +148,7 @@
     .inline-gallery {
       display: flex;
       gap: 16px;
-      padding: 0 40px 40px;
+      padding: 0rem;
       align-items: flex-end;
       justify-content: space-between;
     }
@@ -160,35 +160,38 @@
     }
 
     /* Gallery grid */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
 
-    .gallery-grid img {
-      width: 100%;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+.gallery-item {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
 
-    /* Responsive YouTube embeds */
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-    }
+.media-wrapper {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
 
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+.media-wrapper img,
+.media-wrapper video,
+.media-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; 
+  display: block;
+  border: none;
+  border-radius: 8px;
+}
 
     @media (max-width: 900px) {
     header { flex-direction: column; gap: 10px; }
@@ -238,48 +241,83 @@
         <button class="tab" data-tab="gallery">Gallery</button>
       </div>
 
-      <!-- Tab Content -->
+<!-- Tab Content -->
+   <!-- Overview items -->
       <div class="tab-content active" id="overview">
         <p>
           When I began this project, my goal was to explore creative storytelling techniques through motion and brand identity. The process included concept development, research, and design execution.
         </p>
-
-        <!-- Always-visible gallery items under overview -->
         <div class="inline-gallery">
           <img src="../media/tuinplezier-thumbnail.jpg" alt="Overview Image 1" />
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="YouTube video" frameborder="0" allowfullscreen></iframe>
-          </div>
         </div>
       </div>
-
+   <!-- My Role items -->
       <div class="tab-content" id="my-role">
         <p>
           My responsibilities included creative direction, editing, and final production delivery. I led a small team to ensure that the project met both client expectations and creative goals.
         </p>
-
-        <!-- Always-visible gallery items under My Role -->
         <div class="inline-gallery">
           <img src="../media/tuinplezier-thumbnail.jpg" alt="My Role Image" />
         </div>
       </div>
 
-      <div class="tab-content" id="gallery">
-        <div class="gallery-grid">
-          <img src="../media/project1-img1.jpg" alt="Gallery 1" />
-          <img src="../media/project1-img2.jpg" alt="Gallery 2" />
-          <img src="../media/project1-img3.jpg" alt="Gallery 3" />
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="YouTube video" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <img src="../media/project1-img4.jpg" alt="Gallery 4" />
-          <img src="../media/project1-img5.jpg" alt="Gallery 5" />
-        </div>
-      </div>
+   <!-- Gallery items -->
+<div class="tab-content" id="gallery">
+<div class="gallery-grid">
+  <!-- Image -->
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <img src="../media/project1-img1.jpg" alt="Gallery Image 1">
     </div>
-  </main>
+  </div>
+
+  <!-- Local video -->
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <video src="../media/project1-video1.mp4" controls></video>
+    </div>
+  </div>
+
+  <!-- YouTube embed -->
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        title="YouTube video"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Another image -->
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <img src="../media/project1-img2.jpg" alt="Gallery Image 2">
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <video src="../media/project1-video2.mp4" controls></video>
+    </div>
+  </div>
+
+  <!-- Another YouTube embed -->
+  <div class="gallery-item">
+    <div class="media-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/abc123xyz" 
+        title="YouTube video"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+</div>
+</main>
 
 <footer>
   © 2025 Zenne Rotteveel — My portfolio.
