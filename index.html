@@ -308,9 +308,7 @@
   </div>
 </section>
 
-<footer>
-  © 2025 Zenne Rotteveel — My portfolio.
-</footer>
+<div data-include="../footer.html"></div>
 
 <script>
 const searchInput = document.getElementById('searchInput');
@@ -323,6 +321,22 @@ searchInput.addEventListener('input', function() {
     card.style.display = title.includes(query) ? 'block' : 'none';
   });
 });
+
+  function includeHTML() {
+    const elements = document.querySelectorAll('[data-include]');
+    elements.forEach(async (el) => {
+      const file = el.getAttribute('data-include');
+      if (file) {
+        const response = await fetch(file);
+        if (response.ok) {
+          el.innerHTML = await response.text();
+        } else {
+          el.innerHTML = "Could not load " + file;
+        }
+      }
+    });
+  }
+  includeHTML();
 </script>
 </body>
 </html>
