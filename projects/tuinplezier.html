@@ -1,30 +1,293 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project| Your Portfolio</title>
-<style>
-  body { font-family: "Helvetica Neue", Arial; background: #141414; color: #fff; margin:0; }
-  header { background: #1f1f1f; padding: 20px; text-align: center; }
-  h1 { color: #e50914; }
-  .content { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-  .back-btn { color: #e50914; text-decoration: none; font-weight: bold; display: inline-block; margin-bottom: 20px; }
-  img, video { width: 100%; border-radius: 8px; margin: 20px 0; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Title | Zenne Rotteveel</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+     /* Navbar */
+    header { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      padding: 20px 40px; 
+      background-color: rgba(20,20,20,0.9); 
+      position: sticky; 
+      top: 0;  
+      z-index: 10; 
+    }
+    header h1 { 
+      font-size: 1.4rem; 
+      font-weight: 700; 
+      color: #e50914; 
+      letter-spacing: 0.5px; 
+    }
+    header input { 
+      background: #000; 
+      border: 1px solid #333; 
+      color: #fff; 
+      border-radius: 4px; 
+      padding: 8px 10px; 
+      width: 220px; 
+      font-size: 0.9rem; 
+    }
+
+    /* Main layout */
+    .project-detail-container {
+      display: flex;
+      align-items: stretch;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    /* Left poster (3:4 ratio) */
+    .project-poster {
+      flex: 0 0 30%;
+      aspect-ratio: 3 / 4;
+      position: relative;
+    }
+
+    .project-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .poster-info {
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+      width: 100%;
+      padding: 1rem;
+    }
+
+    /* Right content */
+    .project-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-meta {
+      color: #aaa;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .project-title {
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .project-rating {
+      color: #f5c518;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .tab {
+      background: none;
+      border: none;
+      color: #aaa;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .tab:hover {
+      color: #fff;
+    }
+
+    .tab.active {
+      color: #fff;
+      border-bottom: 2px solid #e50914;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Inline gallery (under Overview/My Role) */
+    .inline-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 1rem;
+      padding: 0 40px 40px;
+      align-items: flex-end;
+    }
+
+    .inline-gallery img, .gallery video, .gallery .youtube-thumb {
+      width: 200px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Gallery grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Responsive YouTube embeds */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 900px) {
+    header { flex-direction: column; gap: 10px; }
+    header input { width: 100%; }
+
+      .project-detail-container {
+        flex-direction: column;
+      }
+      .project-poster {
+        width: 100%;
+        aspect-ratio: auto;
+      }
+    }
+
+     footer { text-align: center; color: #777; font-size: 0.8rem; padding: 30px 0; }
+
+  </style>
 </head>
 <body>
-<header>
-  <h1>Project</h1>
-  <a class="back-btn" href="../index.html">← Back to Portfolio</a>
-</header>
-<div class="content">
-  <p>This is a detailed page for Project 1. Include multiple paragraphs, images, embedded videos, and more information about your role, tools used, and results.</p>
-  <img src="../media/PROJECT-detail.jpg" alt="PROJECT Detail">
-  <video autoplay loop playsinline>
-    <source src=iframe width="560" height="315" src="https://www.youtube.com/embed/-nxRL_eQl84?si=lQTjTcEKPpkPAdP1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> type="video/mp4">
-  </video>
-  <p>Additional details: FILLER.</p>
-</div>
+
+  <!-- Header -->
+  <header class="header">
+    <h1 id="header-title">Zenne Rotteveel</h1>
+    <input type="text" id="search" placeholder="Search..." />
+  </header>
+
+  <main class="project-detail-container">
+    <!-- Left Poster -->
+    <div class="project-poster">
+      <img src="../media/project1-poster.jpg" alt="Project Poster" />
+      <div class="poster-info">
+        <h3>Resume</h3>
+        <p>Date, year — Date, year • Company • 1 Season</p>
+      </div>
+    </div>
+
+    <!-- Right Content -->
+    <div class="project-info">
+      <p class="project-meta">ZENNE ROTTEVEEL ORIGINAL</p>
+      <h2 class="project-title">Project Title</h2>
+      <p class="project-rating">⭐ 9.0</p>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" data-tab="overview">Overview</button>
+        <button class="tab" data-tab="my-role">My Role</button>
+        <button class="tab" data-tab="gallery">Gallery</button>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="tab-content active" id="overview">
+        <p>
+          When I began this project, my goal was to explore creative storytelling techniques through motion and brand identity. The process included concept development, research, and design execution.
+        </p>
+
+        <!-- Always-visible gallery items under overview -->
+        <div class="inline-gallery">
+          <img src="../media/tuinplezier-thumbnail.jpg" alt="Overview Image 1" />
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="YouTube video" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="my-role">
+        <p>
+          My responsibilities included creative direction, editing, and final production delivery. I led a small team to ensure that the project met both client expectations and creative goals.
+        </p>
+
+        <!-- Always-visible gallery items under My Role -->
+        <div class="inline-gallery">
+          <img src="../media/project1-img2.jpg" alt="My Role Image" />
+        </div>
+      </div>
+
+      <div class="tab-content" id="gallery">
+        <div class="gallery-grid">
+          <img src="../media/project1-img1.jpg" alt="Gallery 1" />
+          <img src="../media/project1-img2.jpg" alt="Gallery 2" />
+          <img src="../media/project1-img3.jpg" alt="Gallery 3" />
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="YouTube video" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <img src="../media/project1-img4.jpg" alt="Gallery 4" />
+          <img src="../media/project1-img5.jpg" alt="Gallery 5" />
+        </div>
+      </div>
+    </div>
+  </main>
+
+<footer>
+  © 2025 Zenne Rotteveel — My portfolio.
+</footer>
+
+  <script>
+    // Header click = go back
+    document.getElementById('header-title').addEventListener('click', () => {
+      window.location.href = '../index.html';
+    });
+
+    // Tabs functionality
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
 </body>
 </html>
