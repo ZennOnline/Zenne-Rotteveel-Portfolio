@@ -74,9 +74,9 @@
 
     /* Right content */
     .project-info {
-      flex: 1;
       display: flex;
       flex-direction: column;
+      height: 100%;
     }
 
     .project-meta {
@@ -136,16 +136,18 @@
     }
 
     .tab-content.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       width: 900px;
-      display: block;
+      height: 100%;
+      box-sizing: border-box;
     }
 
     /* Inline gallery (under Overview/My Role) */
     .inline-gallery {
       display: flex;
-      flex-wrap: wrap;
       gap: 16px;
-      margin-top: 1rem;
       padding: 0 40px 40px;
       align-items: flex-end;
       justify-content: space-between;
