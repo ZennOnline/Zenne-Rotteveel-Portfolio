@@ -60,7 +60,10 @@
 </head>
 <body>
 
-<div data-include="header.html"></div>
+<header>
+  <h1>Zenne Rotteveel</h1>
+  <input id="searchInput" type="text" placeholder="Zoeken..." />
+</header>
 
 <!-- HERO SECTION -->
 <section class="hero">
@@ -305,7 +308,9 @@
   </div>
 </section>
 
-<div data-include="footer.html"></div>
+<footer>
+  © 2025 Zenne Rotteveel — My portfolio.
+</footer>
 
 <script>
 const searchInput = document.getElementById('searchInput');
@@ -318,26 +323,6 @@ searchInput.addEventListener('input', function() {
     card.style.display = title.includes(query) ? 'block' : 'none';
   });
 });
-
-function includeHTML() {
-  const elements = document.querySelectorAll('[data-include]');
-  elements.forEach(async (el) => {
-    const file = el.getAttribute('data-include');
-    if (file) {
-      try {
-        const response = await fetch(file);
-        if (response.ok) {
-          el.innerHTML = await response.text();
-        } else {
-          el.innerHTML = "⚠️ Could not load " + file + " (" + response.status + ")";
-        }
-      } catch (error) {
-        el.innerHTML = "⚠️ Error loading " + file + ": " + error.message;
-      }
-    }
-  });
-}
-includeHTML();
 </script>
 </body>
 </html>
