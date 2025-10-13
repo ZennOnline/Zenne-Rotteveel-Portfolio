@@ -80,7 +80,6 @@
 <div class="tab-content" id="gallery">
   <div class="gallery-wrapper">
     <button class="gallery-arrow left">❮</button>
-
 <div class="gallery-grid">
   <!-- Page 1 -->
   <div class="gallery-page">
@@ -231,29 +230,33 @@
 });
 
 // Gallery sliders
-  const galleryGrid = document.querySelector('.gallery-grid');
-  const leftArrow = document.querySelector('.gallery-arrow.left');
-  const rightArrow = document.querySelector('.gallery-arrow.right');
-  const totalPages = document.querySelectorAll('.gallery-page').length;
-  let currentPage = 0;
+const leftArrow = document.querySelector('.gallery-arrow.left');
+const rightArrow = document.querySelector('.gallery-arrow.right');
+const galleryGrid = document.querySelector('.gallery-grid');
+const pages = document.querySelectorAll('.gallery-page');
+let currentPage = 0;
+const totalPages = pages.length;
 
-  function updateGallery() {
-   galleryGrid.style.transform = `translateX(-${currentPage * 100}%)`;
+function updateGallery() {
+  galleryGrid.style.transform = `translateX(-${currentPage * 100}%)`;
+}
+
+leftArrow.addEventListener('click', () => {
+  if (currentPage > 0) {
+    currentPage--;
+    updateGallery();
   }
-
-  rightArrow.addEventListener('click', () => {
-    if (currentPage < totalPages - 1) {
-     currentPage++;
-      updateGallery();
-    }
-  });
-
-  leftArrow.addEventListener('click', () => {
-    if (currentPage > 0) {
-      currentPage--;
-      updateGallery();
-    }
 });
+
+rightArrow.addEventListener('click', () => {
+  if (currentPage < totalPages - 1) {
+    currentPage++;
+    updateGallery();
+  }
+});
+
+// Initialize
+updateGallery();
 </script>
 </body>
 </html>
