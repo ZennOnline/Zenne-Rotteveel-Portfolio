@@ -273,15 +273,15 @@ header input {
     .gallery-grid {
         display: grid;
         grid-auto-flow: column; /* pages are columns */
-        grid-template-columns: repeat(auto-fit, 100%); /* each page full width */
+        grid-template-columns: repeat(auto-fit, 100%);
         gap: 0;
         transition: transform 0.5s ease;
     }
 
     .gallery-page {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 per row */
-        grid-auto-rows: 200px; /* or use aspect-ratio: 16/9 in gallery-item */
+        grid-template-columns: repeat(3, 1fr); 
+        grid-auto-rows: 200px;
         gap: 1rem;
     }
 
@@ -295,7 +295,7 @@ header input {
     .media-wrapper {
         position: relative;
         width: 100%;
-        padding-top: 56.25%; /* 16:9 ratio for YouTube */
+        padding-top: 56.25%;
     }
 
     .media-wrapper iframe {
@@ -309,7 +309,6 @@ header input {
 
     .gallery-arrow {
         position: absolute;
-
         top: 40%;
         transform: translateY(-50%);
         background: none;
@@ -331,10 +330,8 @@ header input {
 
 @media (max-width: 900px) {
     header { flex-direction: column; gap: 10px; }
-    header input { width: 100%; }
-      .project-detail-container {
-        flex-direction: column;
-      }
+    header input { width: 100%;}
+      .project-detail-container {flex-direction: column;}
       .project-poster {
         width: 100%;
         aspect-ratio: auto;
