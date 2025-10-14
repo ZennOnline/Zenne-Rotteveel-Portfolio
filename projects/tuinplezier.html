@@ -238,25 +238,40 @@ let currentPage = 0;
 const totalPages = pages.length;
 
 function updateGallery() {
+  galleryGrid.style.transition = 'transform 0.5s ease';
   galleryGrid.style.transform = `translateX(-${currentPage * 100}%)`;
 }
 
-leftArrow.addEventListener('click', () => {
-  if (currentPage > 0) {
-    currentPage--;
+// Infinite looping logic
+  rightArrow.addEventListener('click', () => {
+    currentPage++;
+      if (currentPage >= totalPages) {
+        currentPage = 0;
+        galleryGrid.style.transition = 'none';
+        galleryGrid.style.transform = `translateX(0%)`;
+      void galleryGrid.offsetWidth;
+      galleryGrid.style.transition = 'transform 0.5s ease';
+  } else {
     updateGallery();
   }
 });
 
-rightArrow.addEventListener('click', () => {
-  if (currentPage < totalPages - 1) {
-    currentPage++;
+leftArrow.addEventListener('click', () => {
+  currentPage--;
+  if (currentPage < 0) {
+    currentPage = totalPages - 1;
+    galleryGrid.style.transition = 'none';
+    galleryGrid.style.transform = `translateX(-${currentPage * 100}%)`;
+    void galleryGrid.offsetWidth;
+    galleryGrid.style.transition = 'transform 0.5s ease';
+  } else {
     updateGallery();
   }
 });
 
 // Initialize
 updateGallery();
+
 </script>
 </body>
 </html>
