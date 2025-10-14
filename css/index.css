@@ -1,19 +1,48 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* HERO SECTION */
-  .hero { position: relative; width: 100%; height: 80vh; overflow: hidden; display: flex; align-items: flex-end; justify-content: flex-start; padding: 60px 60px; background: #000; }
-  .hero video, .hero img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: brightness(60%); }
-  .hero-content { position: relative; z-index: 1; max-width: 600px; }
-  .hero-content h2 { font-size: 3rem; font-weight: 700; margin-bottom: 16px; }
-  .hero-content p { font-size: 1rem; line-height: 1.4; color: #ccc; margin-bottom: 24px; }
-  .hero-buttons { display: flex; gap: 12px; }
-  .hero-buttons a { text-decoration: none; color: #fff; font-weight: 600; background: #e50914; padding: 10px 20px; border-radius: 4px; transition: background 0.3s ease; }
-  .hero-buttons a:nth-child(2) { background: rgba(109,109,110,0.7); }
-  .hero-buttons a:hover { background: #b20710; }
-  .hero-buttons a:nth-child(2):hover { background: rgba(109,109,110,0.9); }
+    .hero {
+        position: relative;
+        width: 100%; height: 80vh;
+        overflow: hidden; display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 60px 60px;
+        background: #000;
+    }
+
+    .hero video, .hero img {
+        position: absolute; top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        filter: brightness(60%);}
+    .hero-content {
+        position: relative; z-index: 1; max-width: 600px; }
+    .hero-content h2 {
+        font-size: 3rem; font-weight: 700; margin-bottom: 16px; }
+    .hero-content p {
+        font-size: 1rem; line-height: 1.4; color: #ccc; margin-bottom: 24px; }
+    .hero-buttons {
+        display: flex; gap: 12px; }
+    .hero-buttons a {
+        text-decoration: none; color: #fff; font-weight: 600; background: #e50914; padding: 10px 20px; border-radius: 4px; transition: background 0.3s ease; }
+    .hero-buttons a:nth-child(2) {
+        background: rgba(109,109,110,0.7);}
+    .hero-buttons a:hover {
+        background: #b20710;}
+    .hero-buttons a:nth-child(2):hover {
+        background: rgba(109,109,110,0.9);
+}
 
 /* Section Titles */
-  h2.section-title { margin: 24px 40px 10px; font-size: 1.2rem; font-weight: 600; }
+    h2.section-title {
+        margin: 24px 40px 10px;
+        font-size: 1.2rem;
+        font-weight: 600;
+}
 
 /* Scrollable rows */
   .row { display: flex; overflow-x: auto; scroll-behavior: smooth; padding: 0 40px 30px; }
@@ -21,12 +50,44 @@
   .row::-webkit-scrollbar-thumb { background-color: #333; border-radius: 10px; }
 
 /* Cards */
-  .card { flex: 0 0 auto; width: 200px; margin-right: 16px; border-radius: 8px; background-color: #1f1f1f; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; text-decoration: none; color: inherit; }
-  .card:hover { transform: scale(1.06); box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-  .card img { width: 100%; height: 120px; object-fit: cover; border-top-left-radius: 8px; border-top-right-radius: 8px; }
-  .card .info { padding: 10px; }
-  .card .info h3 { font-size: 0.95rem; margin-bottom: 4px; color: #fff; }
-  .card .info p { font-size: 0.8rem; color: #aaa; line-height: 1.2;
+    .card {
+        flex: 0 0 auto;
+        width: 200px;
+        margin-right: 16px;
+        border-radius: 8px;
+        background-color: #1f1f1f;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .card:hover {
+        transform: scale(1.06);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .card img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .card .info {
+        padding: 10px; }
+
+        .card .info h3 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+
+        .card .info p {
+            font-size: 0.8rem;
+            color: #aaa;
+            line-height: 1.2;
 }
 
 .row {
