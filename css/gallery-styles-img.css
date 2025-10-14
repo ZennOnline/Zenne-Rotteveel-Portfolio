@@ -1,0 +1,79 @@
+.gallery-page {
+        flex: 0 0 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 0;
+        gap: 1rem;
+    }
+
+    .gallery-item {
+        background: none;
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    .gallery-page img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }.
+
+    .gallery-page img:hover {
+        transform: scale(1.05);
+}
+
+.media-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding-top: 0;
+        cursor: pointer;
+    }
+
+    .media-wrapper img {
+        position: absolute;
+        top: 0;
+        left: 0;
+}
+
+/* Fullscreen image modal */
+    .image-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.9);
+    }
+
+    .image-modal img {
+        margin: auto;
+        display: block;
+        max-width: 90%;
+        max-height: 85vh;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(255,255,255,0.1);
+        object-fit: contain;
+    }
+
+    .image-modal .close {
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .image-modal .close:hover {
+        color: #bbb;
+}
