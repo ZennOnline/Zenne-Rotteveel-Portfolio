@@ -2,8 +2,8 @@
         flex: 0 0 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 0;
         grid-template-rows: 1fr;
+        grid-auto-rows: 0;
         gap: 1rem;
     }
 
