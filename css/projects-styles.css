@@ -218,26 +218,6 @@
         width: 100%;
     }
 
-    .gallery-page {
-        flex: 0 0 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-    }
-
-    .gallery-item {
-        border-radius: 8px;
-        overflow: hidden;
-        background: #000;
-}
-
-.media-wrapper {
-        position: relative;
-        width: 100%;
-        padding-top: 56.25%;
-        cursor: pointer;
-}
-
 .gallery-arrow {
         position: absolute;
         top: 40%;
