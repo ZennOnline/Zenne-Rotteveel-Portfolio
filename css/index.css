@@ -98,58 +98,56 @@
         font-weight: 600;
 }
 
-/* Scrollable rows */
+/* Rows */
     .row {
-        display: flex;
-        overflow-x: auto;
-        scroll-behavior: smooth;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
         padding: 0 40px 30px;
     }
-    .row::-webkit-scrollbar { height: 8px; }
-    .row::-webkit-scrollbar-thumb {
-        background-color: #333;
-        border-radius: 10px;
+
+    .education-row {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 /* Cards */
     .card {
-        flex: 0 0 auto;
-        width: 200px;
-        margin-right: 16px; 
-        border-radius: 8px; 
-        background-color: #1f1f1f; 
-        transition: transform 0.3s ease, box-shadow 0.3s ease; 
-        cursor: pointer; text-decoration: none; 
-        color: inherit; 
+        width: 100%;
+        border-radius: 8px;
+        background-color: #1f1f1f;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
     }
-    .card:hover { 
-        transform: scale(1.06); 
-        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    } 
-    .card img { 
-        width: 100%; 
-        height: 120px; 
-        object-fit: cover; 
-        border-top-left-radius: 8px; 
-        border-top-right-radius: 8px; 
-    }
-    .card .info { padding: 10px; }
-    .card .info h3 { 
-        font-size: 0.95rem; 
-        margin-bottom: 4px; 
-        color: #fff; 
-    }
-    .card .info p { 
-        font-size: 0.8rem; 
-        color: #aaa; 
-        line-height: 1.2; 
-}
 
-.row {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-  padding: 0 40px 30px;
+    .card:hover {
+        transform: scale(1.06);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .card img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .card .info {
+        padding: 10px;
+    }
+
+    .card .info h3 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+        color: #fff;
+    }
+
+    .card .info p {
+        font-size: 0.8rem;
+        color: #aaa;
+        line-height: 1.2;
 }
 
 footer {
