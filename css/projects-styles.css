@@ -98,9 +98,7 @@
     .social-links {
         display: flex;
         gap: 30px;
-        align-items: end;
-        right: 0;
-        bottom: 0;
+        align-items: center;
     }
 
     .social-links a {
@@ -108,6 +106,7 @@
         width: 28px;
         height: 28px;
         transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+        margin-bottom: 2px;
     }
 
     .social-links a:hover {
@@ -121,6 +120,12 @@
         height: 100%;
         object-fit: contain;
         filter: brightness(0) invert(1);
+    }
+    
+    .social-links p {
+        margin: 0;
+        position: relative;
+        top: 10px;
 }
 
 .project-meta {
