@@ -29,7 +29,6 @@
         border: none;
     }
 
-    /* Placeholder layer for videos (thumbnail background) */
     .media-wrapper::before {
         content: "";
         position: absolute;
@@ -40,7 +39,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-color: #000;
+        background-color: rgba(20,20,20,0.9);
         transition: opacity 0.4s ease;
         z-index: 1;
     }
@@ -57,6 +56,9 @@
         transition: opacity 0.4s ease;
         z-index: 2;
     }
+
+    .media-wrapper::before,
+    .media-wrapper::after {transition: opacity 0.6s ease;}
 
     .media-wrapper.loaded::before,
     .media-wrapper.loaded::after {
