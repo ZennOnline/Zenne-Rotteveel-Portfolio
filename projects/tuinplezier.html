@@ -274,6 +274,37 @@ leftArrow.addEventListener('click', () => {
 // Initialize
 updateGallery();
 
+document.addEventListener("DOMContentLoaded", () => {
+  const wrappers = document.querySelectorAll(".media-wrapper");
+
+  wrappers.forEach(wrapper => {
+    const iframe = wrapper.querySelector("iframe");
+    const src = iframe?.getAttribute("src");
+    if (!src) return;
+
+    const match = src.match(/embed\/([a-zA-Z0-9_-]{11})/);
+    if (!match) return;
+
+    const videoId = match[1];
+    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+    // Set thumbnail as background
+    wrapper.style.setProperty("--thumb-url", `url(${thumbnailUrl})`);
+    wrapper.style.backgroundImage = `url(${thumbnailUrl})`;
+
+    // Hide the placeholder once iframe loads
+    iframe.addEventListener("load", () => {
+      wrapper.classList.add("loaded");
+    });
+
+    // Handle slow loading / broken iframes
+    setTimeout(() => {
+      if (!wrapper.classList.contains("loaded")) {
+        wrapper.classList.add("fallback");
+      }
+    }, 6000); // 6s timeout
+  });
+});
 </script>
 </body>
 </html>
