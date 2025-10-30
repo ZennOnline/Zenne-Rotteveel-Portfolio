@@ -157,6 +157,17 @@ footer {
     padding: 30px 0;
 }
 
+body::after {
+  content: "© 2025 Zenne Rotteveel — Created by me, inspired by Netflix.";
+  display: block;
+  text-align: center;
+  color: #777;
+  font-size: 0.8rem;
+  padding: 30px 0;
+  background: transparent;
+  margin-top: 2rem;
+}
+
 @media (max-width: 600px) {
     header { flex-direction: column; gap: 10px; }
     header input { width: 100%; }

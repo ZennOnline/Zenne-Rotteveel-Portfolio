@@ -26,5 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       if (!loaded) wrapper.classList.add("loaded");
     }, 3000);
+});
+
+
+// Detect if a gallery only has one video
+  const galleries = document.querySelectorAll('.gallery-page');
+  galleries.forEach(gallery => {
+    const items = gallery.querySelectorAll('.gallery-item');
+    if (items.length === 1) {
+      gallery.classList.add('single-video');
+    }
   });
 });

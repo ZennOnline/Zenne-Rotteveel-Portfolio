@@ -65,3 +65,21 @@
         opacity: 0;
         pointer-events: none;
 }
+
+.gallery-page.single-video {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 0;
+    }
+
+    .gallery-page.single-video .gallery-item {
+        width: 85%;
+        max-width: 960px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .gallery-page.single-video .media-wrapper {
+        padding-top: 50%;
+}
