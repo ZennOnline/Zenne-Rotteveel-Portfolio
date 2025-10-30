@@ -1,5 +1,7 @@
-// Gallery thumbnail loading + single-video handling + fallback for failed videos
+// Gallery thumbnail loading + dynamic pages + single-video + fallback + slider arrows
 document.addEventListener("DOMContentLoaded", () => {
+
+  // 1️⃣ Process thumbnails and handle iframe errors
   const wrappers = document.querySelectorAll(".media-wrapper");
 
   wrappers.forEach(wrapper => {
@@ -50,23 +52,75 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.style.zIndex = "2";
       wrapper.appendChild(overlay);
 
-      // Fade overlay on hover like your normal videos
+      // Fade overlay on hover
       wrapper.addEventListener("mouseenter", () => overlay.style.opacity = "0");
       wrapper.addEventListener("mouseleave", () => overlay.style.opacity = "0.7");
     });
 
-    // Backup fade: if iframe is slow, fade anyway after 3s
+    // Backup fade if iframe is slow
     setTimeout(() => {
       if (!loaded) wrapper.classList.add("loaded");
     }, 3000);
   });
 
-  // Detect if a gallery only has one video
-  const galleries = document.querySelectorAll('.gallery-page');
-  galleries.forEach(gallery => {
-    const items = gallery.querySelectorAll('.gallery-item');
+  // 2️⃣ Dynamic page splitting (6 items per page)
+  const galleryGrid = document.querySelector('.gallery-grid');
+  let pages = [];
+  if (galleryGrid) {
+    const allItems = Array.from(galleryGrid.querySelectorAll('.gallery-item'));
+    const itemsPerPage = 6;
+
+    // Clear existing pages
+    galleryGrid.innerHTML = '';
+
+    // Create pages
+    for (let i = 0; i < allItems.length; i += itemsPerPage) {
+      const page = document.createElement('div');
+      page.classList.add('gallery-page');
+      allItems.slice(i, i + itemsPerPage).forEach(item => page.appendChild(item));
+      galleryGrid.appendChild(page);
+    }
+
+    // Store pages for slider
+    pages = Array.from(galleryGrid.querySelectorAll('.gallery-page'));
+  }
+
+  // 3️⃣ Detect single-video pages
+  pages.forEach(page => {
+    const items = page.querySelectorAll('.gallery-item');
     if (items.length === 1) {
-      gallery.classList.add('single-video');
+      page.classList.add('single-video');
     }
   });
+
+  // 4️⃣ Slider functionality
+  if (pages.length > 1) {
+    let currentPage = 0;
+
+    const leftArrow = document.querySelector('.gallery-arrow.left');
+    const rightArrow = document.querySelector('.gallery-arrow.right');
+
+    function showPage(index) {
+      pages.forEach((page, i) => {
+        page.style.display = i === index ? 'grid' : 'none';
+      });
+    }
+
+    leftArrow?.addEventListener('click', () => {
+      currentPage = (currentPage - 1 + pages.length) % pages.length;
+      showPage(currentPage);
+    });
+
+    rightArrow?.addEventListener('click', () => {
+      currentPage = (currentPage + 1) % pages.length;
+      showPage(currentPage);
+    });
+
+    // Initialize first page
+    showPage(currentPage);
+  } else if (pages.length === 1) {
+    // Only one page, just show it
+    pages[0].style.display = 'grid';
+  }
+
 });
