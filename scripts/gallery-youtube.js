@@ -1,7 +1,6 @@
-// Gallery thumbnail loading + dynamic pages + single-video + fallback + slider arrows
 document.addEventListener("DOMContentLoaded", () => {
 
-  // 1️⃣ Process thumbnails and handle iframe errors
+// Process thumbnails and handle iframe errors
   const wrappers = document.querySelectorAll(".media-wrapper");
 
   wrappers.forEach(wrapper => {
@@ -61,9 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       if (!loaded) wrapper.classList.add("loaded");
     }, 3000);
-  });
+});
 
-  // 2️⃣ Dynamic page splitting (6 items per page)
+// Dynamic page splitting (6 items per page)
   const galleryGrid = document.querySelector('.gallery-grid');
   let pages = [];
   if (galleryGrid) {
@@ -83,22 +82,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Store pages for slider
     pages = Array.from(galleryGrid.querySelectorAll('.gallery-page'));
-  }
+}
 
-  // 3️⃣ Detect single-video pages
+// Detect single-video pages
   pages.forEach(page => {
     const items = page.querySelectorAll('.gallery-item');
     if (items.length === 1) {
       page.classList.add('single-video');
     }
-  });
+});
 
-  // 4️⃣ Slider functionality
+// Slider functionality
   if (pages.length > 1) {
     let currentPage = 0;
-
-    const leftArrow = document.querySelector('.gallery-arrow.left');
-    const rightArrow = document.querySelector('.gallery-arrow.right');
 
     function showPage(index) {
       pages.forEach((page, i) => {

@@ -61,20 +61,16 @@ function updateGallery() {
   } else {
     updateGallery();
   }
-});
-
-leftArrow.addEventListener('click', () => {
-  currentPage--;
-  if (currentPage < 0) {
-    currentPage = totalPages - 1;
-    galleryGrid.style.transition = 'none';
-    galleryGrid.style.transform = `translateX(-${currentPage * 100}%)`;
-    void galleryGrid.offsetWidth;
-    galleryGrid.style.transition = 'transform 0.5s ease';
-  } else {
+  });
+  leftArrow.addEventListener('click', () => {
+    currentPage--;
+    if (currentPage < 0) {
+      currentPage = totalPages - 1;
+      galleryGrid.style.transition = 'none';
+      galleryGrid.style.transform = `translateX(-${currentPage * 100}%)`;
+      void galleryGrid.offsetWidth;
+      galleryGrid.style.transition = 'transform 0.5s ease';
+    } else {
     updateGallery();
   }
 });
-
-// Initialize
-updateGallery();
