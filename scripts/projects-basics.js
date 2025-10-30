@@ -70,7 +70,10 @@ function updateGallery() {
       galleryGrid.style.transform = `translateX(-${currentPage * 100}%)`;
       void galleryGrid.offsetWidth;
       galleryGrid.style.transition = 'transform 0.5s ease';
-    } else {
+  } else {
     updateGallery();
   }
 });
+
+// Initialize
+updateGallery();

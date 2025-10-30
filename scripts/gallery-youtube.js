@@ -1,3 +1,4 @@
+// Gallery thumbnail loading + dynamic pages + single-video + fallback + slider arrows
 document.addEventListener("DOMContentLoaded", () => {
 
 // Process thumbnails and handle iframe errors
@@ -85,16 +86,20 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 // Detect single-video pages
-  pages.forEach(page => {
-    const items = page.querySelectorAll('.gallery-item');
+  const galleries = document.querySelectorAll('.gallery-page');
+  galleries.forEach(gallery => {
+    const items = gallery.querySelectorAll('.gallery-item');
     if (items.length === 1) {
-      page.classList.add('single-video');
+      gallery.classList.add('single-video');
     }
 });
 
 // Slider functionality
   if (pages.length > 1) {
     let currentPage = 0;
+
+    const leftArrow = document.querySelector('.gallery-arrow.left');
+    const rightArrow = document.querySelector('.gallery-arrow.right');
 
     function showPage(index) {
       pages.forEach((page, i) => {
@@ -115,8 +120,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize first page
     showPage(currentPage);
   } else if (pages.length === 1) {
-    // Only one page, just show it
-    pages[0].style.display = 'grid';
-  }
-
+}
 });
