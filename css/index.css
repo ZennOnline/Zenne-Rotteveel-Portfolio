@@ -101,13 +101,10 @@
 /* Rows */
     .row {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 16px;
         padding: 0 40px 30px;
-    }
-
-    .education-row {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        justify-content: start;
 }
 
 /* Cards */
@@ -173,4 +170,35 @@ body::after {
     header input { width: 100%; }
     .hero { padding: 30px; height: 60vh; }
     .hero-content h2 { font-size: 2rem; }
+}
+
+/* Project filters*/
+    .row-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .project-filters {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .project-filters button {
+        padding: 8px 14px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.6;
+        color: #fff;
+        font-weight: 600;
+        background:  rgba(109,109,110,0.7);
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: background 0.3s ease;
+
+    }
+
+    .project-filters button.active {
+        opacity: 1;
+        background: rgba(109,109,110,0.9);
 }
