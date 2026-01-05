@@ -27,44 +27,6 @@
     </ul>
 </div>
 
-<script>
-// Header click = go back
-    document.getElementById('header-title').addEventListener('click', () => {
-      window.location.href = '../index.html';
-});
-
-// Tabs functionality
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.tab-content');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
-      });
-});
-
-// Poster sliders
-  const slides = document.querySelectorAll('.poster-slider img');
-  const next = document.getElementById('next');
-  const prev = document.getElementById('prev');
-  let index = 0;
-
-  function showSlide(i) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[i].classList.add('active');
-  }
-
-  next.addEventListener('click', () => {
-    index = (index + 1) % slides.length;
-    showSlide(index);
-  });
-
-  prev.addEventListener('click', () => {
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide(index);
-  });
-</script>
+<script src="../scripts/main-styles.js"></script>
 </body>
 </html>
