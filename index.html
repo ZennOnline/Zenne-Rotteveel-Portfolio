@@ -21,7 +21,7 @@
   </video>
 
   <div class="hero-content">
-    <h2>Zenne Ruth Rotteveel</h2>
+    <h2>Zenne Rotteveel - Allround Creative</h2>
     <p>
       Creative team player with a passion for media and communications, looking for a creative job! I’m a big believer in transparent communication and fixing problems rather than only complaining about them. If you are visiting this website before I’m fully done finishing it: congratulations! It means I could NOT let the opportunity to apply slide even if it means showing you my work in progress. 😊</p>
     <div class="hero-buttons">
@@ -41,6 +41,7 @@
     <button data-filter="graphic">Graphic Design</button>
     <button data-filter="social">Social Media</button>
     <button data-filter="marketing">Marketing & PR</button>
+    <button data-filter="personal">Personal Projects</button>
   </div>
 </div>
 <div class="row">
@@ -84,7 +85,7 @@
       </div>
     </a>
 
-    <a class="card" href="projects/veerkracht.html" data-taggs="buas veerkracht documentary video">
+    <a class="card" href="projects/veerkracht.html" data-taggs="buas veerkracht documentary video personal">
       <img src="media/thumbnail-prj-veerkracht.jpg" alt="Veerkracht documentaire">
       <div class="info">
         <h3>Veerkracht</h3>
@@ -92,7 +93,7 @@
       </div>
     </a>
 
-    <a class="card" href="projects/unoxnjd.html" data-taggs="winkelman hessen unox nieuwjaarsduik graphic design marketing pr">
+    <a class="card" href="projects/unoxnjd.html" data-taggs="winkelman hessen unox nieuwjaarsduik graphic design">
       <img src="media/thumbnail-prj-unoxnjd.jpg" alt="Unox Nieuwjaarsduik 2020">
       <div class="info">
         <h3>Unox Nieuwjaarsduik</h3>
@@ -196,7 +197,7 @@
       </div>
     </a>
 
-    <a class="card" href="projects/personalfilm.html" data-taggs="inholland video">
+    <a class="card" href="projects/personalfilm.html" data-taggs="inholland video personal">
       <img src="media/thumbnail-prj-personalfilm.jpg" alt="Personal film">
       <div class="info">
         <h3>Video assignment</h3>
@@ -282,44 +283,6 @@
   </div>
 </section>
 
-<script>
-const searchInput = document.getElementById('searchInput');
-const filterButtons = document.querySelectorAll('.project-filters button');
-const projectCards = document.querySelectorAll('.card[data-taggs]');
-
-let activeFilter = 'all';
-
-function filterProjects() {
-  const searchQuery = searchInput.value.toLowerCase();
-
-  projectCards.forEach(card => {
-    const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
-    const tags = card.dataset.taggs?.toLowerCase() || '';
-
-    const matchesSearch =
-      title.includes(searchQuery) || tags.includes(searchQuery);
-
-    const matchesFilter =
-      activeFilter === 'all' || tags.includes(activeFilter);
-
-    card.style.display = matchesSearch && matchesFilter ? 'block' : 'none';
-  });
-}
-
-// Zoekveld
-searchInput.addEventListener('input', filterProjects);
-
-// Filterknoppen
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    activeFilter = button.dataset.filter;
-    filterProjects();
-  });
-});
-</script>
-
+<script src="../scripts/homepages.js"></script>
 </body>
 </html>
