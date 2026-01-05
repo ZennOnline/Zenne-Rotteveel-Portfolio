@@ -30,6 +30,81 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// ===== Profile icon + dropdown (fully JS, no HTML changes) =====
+const header = document.querySelector('header');
+
+if (header && !document.getElementById('profile-container')) {
+  // Container
+  const profileContainer = document.createElement('div');
+  profileContainer.id = 'profile-container';
+  profileContainer.style.position = 'relative';
+
+  // Profile icon
+  const profileButton = document.createElement('img');
+  profileButton.id = 'profileButton';
+  profileButton.src = 'media/profile-icon.png'; // replace with your icon path
+  profileButton.alt = 'Profile';
+  profileButton.style.width = '36px';
+  profileButton.style.height = '36px';
+  profileButton.style.borderRadius = '50%';
+  profileButton.style.cursor = 'pointer';
+
+  // Menu
+  const profileMenu = document.createElement('div');
+  profileMenu.id = 'profileMenu';
+  profileMenu.style.position = 'absolute';
+  profileMenu.style.top = '45px';
+  profileMenu.style.right = '0';
+  profileMenu.style.backgroundColor = '#1f1f1f';
+  profileMenu.style.borderRadius = '6px';
+  profileMenu.style.boxShadow = '0 4px 12px rgba(0,0,0,0.5)';
+  profileMenu.style.display = 'none';
+  profileMenu.style.zIndex = '20';
+
+  // Buttons
+  const businessBtn = document.createElement('button');
+  businessBtn.textContent = 'Business';
+  businessBtn.dataset.target = 'index.html';
+  const personalBtn = document.createElement('button');
+  personalBtn.textContent = 'Personal';
+  personalBtn.dataset.target = 'homepages/aboutme.html';
+
+  [businessBtn, personalBtn].forEach(btn => {
+    btn.style.display = 'block';
+    btn.style.width = '100%';
+    btn.style.padding = '10px 20px';
+    btn.style.border = 'none';
+    btn.style.background = 'none';
+    btn.style.color = '#fff';
+    btn.style.textAlign = 'left';
+    btn.style.cursor = 'pointer';
+    btn.addEventListener('mouseenter', () => btn.style.backgroundColor = '#333');
+    btn.addEventListener('mouseleave', () => btn.style.backgroundColor = 'transparent');
+    btn.addEventListener('click', () => {
+      window.location.href = btn.dataset.target;
+    });
+    profileMenu.appendChild(btn);
+  });
+
+  // Build DOM
+  profileContainer.appendChild(profileButton);
+  profileContainer.appendChild(profileMenu);
+  header.appendChild(profileContainer);
+
+  // Toggle menu on click
+  profileButton.addEventListener('click', () => {
+    profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!profileButton.contains(e.target) && !profileMenu.contains(e.target)) {
+      profileMenu.style.display = 'none';
+    }
+  });
+}
+
+
 // Footer 
 document.addEventListener('DOMContentLoaded', () => {
   let footer = document.querySelector('footer');
