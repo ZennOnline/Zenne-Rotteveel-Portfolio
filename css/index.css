@@ -6,6 +6,10 @@
         overflow-x: hidden;
 }
 
+#searchInput {
+  display: none; /* completely hidden */
+}
+
 /* Navbar */
     header {
         display: flex;
