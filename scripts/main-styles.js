@@ -63,11 +63,11 @@ if (header && !document.getElementById('profile-container')) {
 
   // Buttons
   const businessBtn = document.createElement('button');
-  businessBtn.textContent = 'Business';
-  businessBtn.dataset.target = 'index.html';
+  businessBtn.textContent = 'Recruiter';
+  businessBtn.dataset.target = '../profile/business.html';
   const personalBtn = document.createElement('button');
-  personalBtn.textContent = 'Personal';
-  personalBtn.dataset.target = 'aboutme.html';
+  personalBtn.textContent = 'Friend';
+  personalBtn.dataset.target = '../profile/personal.html';
 
   [businessBtn, personalBtn].forEach(btn => {
     btn.style.display = 'block';
