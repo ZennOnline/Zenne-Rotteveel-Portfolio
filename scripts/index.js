@@ -1,24 +1,20 @@
-// ===== Profile icon + dropdown (fully JS, no HTML changes) =====
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.profile').forEach(profile => {
+  console.log('DOM ready');
+
+  const profiles = document.querySelectorAll('.profile');
+  console.log('Profiles found:', profiles.length);
+
+  profiles.forEach(profile => {
     profile.addEventListener('click', () => {
+      console.log('Clicked profile');
+
+      const profileType = profile.dataset.profile;
       const target = profile.dataset.target;
-      const profileType = profile.dataset.profile; // 👈 new
 
-      // Save selected profile
+      console.log(profileType, target);
+
       localStorage.setItem('activeProfile', profileType);
-
-      // Go to selected page
       window.location.href = target;
     });
   });
 });
-
-// On profile selector page ONLY
-const lastProfile = localStorage.getItem('activeProfile');
-if (lastProfile) {
-  window.location.href = lastProfile === 'personal'
-    ? 'profile/personal.html'
-    : 'profile/business.html';
-}
-
