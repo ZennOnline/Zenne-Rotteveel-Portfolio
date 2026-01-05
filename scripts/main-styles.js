@@ -67,7 +67,7 @@ if (header && !document.getElementById('profile-container')) {
   businessBtn.dataset.target = 'index.html';
   const personalBtn = document.createElement('button');
   personalBtn.textContent = 'Personal';
-  personalBtn.dataset.target = 'homepages/aboutme.html';
+  personalBtn.dataset.target = 'aboutme.html';
 
   [businessBtn, personalBtn].forEach(btn => {
     btn.style.display = 'block';
