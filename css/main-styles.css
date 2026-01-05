@@ -8,7 +8,7 @@ body {
 
 /* Navbar */
 #searchInput {
-  display: none; /* completely hidden */
+  display: none;
 }
     header {
         display: flex;
@@ -43,4 +43,20 @@ footer.auto-footer {
   color: #777;
   font-size: 0.8rem;
   padding: 15px 0;
+}
+
+#profileSwitcher {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  margin-left: 20px;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, border 0.2s ease;
+}
+
+#profileSwitcher:hover {
+  transform: scale(1.05);
+  border-color: #fff;
 }
