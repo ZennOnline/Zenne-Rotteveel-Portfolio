@@ -42,10 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Map profile → image
   const profileImages = {
-    business: 'media/profile-business.png',
-    personal: 'media/profile-personal.png',
-    developer: 'media/profile-developer.png'
-  };
+    stalker: '../media/profile-icon1.png',
+    business: '../media/profile-icon3.png',
+    friend: '../media/profile-icon4.png',
+    recruiter: '../media/profile-icon2'
+  }; 
 
   const profileSwitcher = document.createElement('img');
   profileSwitcher.id = 'profileSwitcher';
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Click → go to profile selector
   profileSwitcher.addEventListener('click', () => {
-    window.location.href = 'index.html'; // profile selector
+    window.location.href = '../index.html';
   });
 });
 
