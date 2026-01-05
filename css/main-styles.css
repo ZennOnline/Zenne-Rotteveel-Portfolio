@@ -6,11 +6,10 @@ body {
     padding: 0;
 }
 
+/* Navbar */
 #searchInput {
   display: none; /* completely hidden */
 }
-
-/* Navbar */
     header {
         display: flex;
         align-items: center;
@@ -39,23 +38,10 @@ body {
         font-size: 0.9rem;
 }
 
-footer {
-    text-align: center;
-    color: #777;
-    font-size: 0.8rem;
-    padding: 30px 0;
-}
-
-body::after {
-  content: "© 2025 Zenne Rotteveel — Created by me, inspired by Netflix.";
-  display: block;
+/* Footer */
+footer.auto-footer {
   text-align: center;
   color: #777;
   font-size: 0.8rem;
   padding: 30px 0;
-  background: transparent;
-  margin-top: 2rem;
 }
-
-
-
