@@ -51,9 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Map profile → image
   const profileImages = {
     stalker: '../media/profile-icon1.png',
-    business: '../media/profile-icon3.png',
+    business: '../media/profile-icon2.png',
     friend: '../media/profile-icon4.png',
-    recruiter: '../media/profile-icon2.png'
+    recruiter: '../media/profile-icon3.png'
   }; 
 
   const profileSwitcher = document.createElement('img');
