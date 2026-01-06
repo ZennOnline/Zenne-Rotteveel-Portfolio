@@ -1,5 +1,5 @@
-console.log('main-styles.js loaded');
-// Header 
+
+// Header go back button
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   if (header) {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ===== Header profile switcher (Netflix-style) =====
+// ===== Header profile switcher =====
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.header');
   console.log('activeProfile =', localStorage.getItem('activeProfile'));
