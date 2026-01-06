@@ -1,5 +1,4 @@
 console.log('main-styles.js loaded');
-
 // Header 
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
