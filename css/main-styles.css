@@ -7,26 +7,24 @@ body {
 }
 
 /* Navbar */
-#searchInput {
-  display: none;
-}
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 40px;
-        background-color: rgba(20,20,20,0.9);
-        position: sticky; top: 0;
-        z-index: 10;
-    }
+  #searchInput {
+    display: none;}
+
+  header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background-color: rgba(20,20,20,0.9);
+      position: sticky; top: 0;
+      z-index: 10;}
 
     header h1 {
         font-size: 1.4rem;
         font-weight: 700;
         color: #e50914;
-        letter-spacing: 0.5px;
-        cursor: pointer;
-    }
+        letter-spacing: auto;
+        cursor: pointer;}
 
     header input {
         background: #000;

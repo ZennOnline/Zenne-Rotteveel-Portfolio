@@ -78,11 +78,10 @@
     }
 
     .poster-slider .arrow.left {
-        left: 15px;
+        left: 1rem;
     }
-
     .poster-slider .arrow.right {
-        right: 15px;
+        right: 1rem;
 }
 
 /* Right content */
@@ -100,14 +99,14 @@
 /* Social icons aligned to bottom of text area */
     .social-links {
         display: flex;
-        gap: 30px;
+        gap: 2rem;
         align-items: center;
     }
 
     .social-links a {
         display: inline-block;
-        width: 28px;
-        height: 28px;
+        width: 2rem;
+        height: 2rem;
         transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
         margin-bottom: 2px;
     }
@@ -128,7 +127,7 @@
     .social-links p {
         margin: 0;
         position: relative;
-        top: 10px;
+        top: 1rem;
 }
 
 .project-meta {
