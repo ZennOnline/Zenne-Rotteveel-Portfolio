@@ -7,11 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const link = document.createElement('a');
       const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' ;
 
-      if (!isIndex) {
-        link.href = "../index.html";
-        link.style.textDecoration = "none";
-        link.style.color = "#e50914";
-        link.style.cursor = "pointer";
+if (!isIndex) {
+    link.style.textDecoration = "none";
+    link.style.color = "#e50914";
+    link.style.cursor = "pointer";
+
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lastPage = localStorage.getItem('lastPage') || "../index.html";
+        window.location.assign(lastPage);
+    });
+
       } else {
         link.href = "#"; // dummy link on index page
         link.style.textDecoration = "none";
