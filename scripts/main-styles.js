@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===== Header profile switcher (Netflix-style) =====
-
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   if (!header) return;
@@ -41,16 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const activeProfile = localStorage.getItem('activeProfile') || 'business';
 
-  localStorage.setItem('activeProfile', profileType);
-  console.log('Stored activeProfile:', localStorage.getItem('activeProfile'));
-
-
   // Map profile → image
   const profileImages = {
     stalker: '../media/profile-icon1.png',
     business: '../media/profile-icon3.png',
     friend: '../media/profile-icon4.png',
-    recruiter: '../media/profile-icon2.png'
+    recruiter: '../media/profile-icon2'
   }; 
 
   const profileSwitcher = document.createElement('img');
@@ -64,8 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   profileSwitcher.addEventListener('click', () => {
     window.location.href = '../index.html';
   });
-});
-
+});        
 
 // Footer 
 document.addEventListener('DOMContentLoaded', () => {
