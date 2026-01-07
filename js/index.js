@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   profiles.forEach(profile => {
     profile.addEventListener('click', (e) => {
-      e.preventDefault(); // critical
+      e.preventDefault();
       const profileType = profile.dataset.profile;
       const target = profile.getAttribute('href');
       localStorage.setItem('activeProfile', profileType);
