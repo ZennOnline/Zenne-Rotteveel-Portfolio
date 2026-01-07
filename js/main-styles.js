@@ -1,41 +1,33 @@
-
 // Header go back button
 document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('header');
-  if (header) {
-    if (!header.querySelector('h1')) {
-      const link = document.createElement('a');
-      const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' ;
+  const header = document.querySelector('.header');
+  if (!header) return;
 
-if (!isIndex) {
-    link.style.textDecoration = "none";
-    link.style.color = "#e50914";
-    link.style.cursor = "pointer";
+  // Wrapper so the h1 becomes clickable
+  const backButton = document.createElement('button');
+  backButton.className = 'header-back-button';
+  backButton.setAttribute('aria-label', 'Go back');
 
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const lastPage = localStorage.getItem('lastPage') || "../index.html";
-        window.location.assign(lastPage);
-    });
+  const h1 = document.createElement('h1');
+  h1.textContent = 'Zenne Rotteveel';
+  h1.style.margin = '0';
+  h1.style.background = 'transparant';
 
-      } else {
-        link.href = "#"; // dummy link on index page
-        link.style.textDecoration = "none";
-        link.style.cursor = "default";
-      }
+  // Insert h1 inside button
+  backButton.appendChild(h1);
 
-      const h1 = document.createElement('h1');
-      h1.textContent = "Zenne Rotteveel";
-      h1.style.fontSize = "1.4rem";
-      h1.style.fontWeight = "700";
-      h1.style.letterSpacing = "0.5px";
-      h1.style.margin = "0";
-
-      link.appendChild(h1);
-      header.prepend(link);
+  // Go-back behavior
+  backButton.addEventListener('click', () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = '/';
     }
-  }
+  });
+
+  header.prepend(backButton);
 });
+
 
 // ===== Header profile switcher =====
 document.addEventListener('DOMContentLoaded', () => {
