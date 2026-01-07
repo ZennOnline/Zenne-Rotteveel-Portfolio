@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Store pages for slider
     pages = Array.from(galleryGrid.querySelectorAll('.gallery-page'));
-}
+  }
 
-// Slider functionality
+  // Slider functionality
   if (pages.length > 1) {
     let currentPage = 0;
 
@@ -68,5 +68,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize first page
     showPage(currentPage);
   } else if (pages.length === 1) {
-}
+  }
 });

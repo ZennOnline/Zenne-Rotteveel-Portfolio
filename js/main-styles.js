@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     business: '../media/profile-icon2.png',
     friend: '../media/profile-icon4.png',
     recruiter: '../media/profile-icon3.png'
-  }; 
+  };
 
   const profileSwitcher = document.createElement('img');
   profileSwitcher.id = 'profileSwitcher';
@@ -59,12 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
   profileSwitcher.addEventListener('click', () => {
     window.location.href = '../index.html';
   });
-});        
+});
 
 // Footer 
 document.addEventListener('DOMContentLoaded', () => {
   let footer = document.querySelector('footer');
-  
+
   if (!footer) {
     footer = document.createElement('footer');
     document.body.appendChild(footer);

@@ -1,3 +1,4 @@
+/* Main layout */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +12,7 @@ body {
   color: #fff;
 }
 
+/* Who */
 .who-container {
   height: 100%;
   display: flex;
@@ -25,6 +27,7 @@ body {
   margin-bottom: 50px;
 }
 
+/* Profiles */
 .profiles {
   display: flex;
   gap: 40px;
