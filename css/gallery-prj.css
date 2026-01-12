@@ -1,0 +1,45 @@
+/* Grid tuned for 6 projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+/* Card */
+.project-card {
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Image (shorter = more density) */
+.project-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+}
+
+/* Info */
+.project-info {
+    padding: 8px 10px;
+}
+
+.project-info h3 {
+    font-size: 0.85rem;
+    margin: 0 0 2px;
+    color: #fff;
+}
+
+.project-info p {
+    font-size: 0.75rem;
+    color: #aaa;
+    line-height: 1.2;
+}
